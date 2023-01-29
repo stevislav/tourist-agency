@@ -1,0 +1,67 @@
+.widget {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  margin-left: 50px;
+  margin-right: -50px;
+  padding: 8px;
+  -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+  box-shadow: 3px 3px 4px 1px rgba(114, 114, 114, 0.47);
+  border: 1px solid #7251b5;
+  border-radius: 7px;
+  background-color: white;
+
+  .left,
+  .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .title {
+      font-weight: bold;
+      font-size: 17px;
+      color: #7251b5;
+      padding-top: 2.5px;
+      padding-left: 5px;
+    }
+
+    .profileInput {
+      font-size: 15px;
+      border: 1px solid #7251b5;
+      border-radius: 5px;
+      outline: none;
+      padding: 5px 20px 5px 3px;
+    }
+
+    .icon {
+      font-size: 18px;
+      padding: 5px;
+      border-radius: 5px;
+      align-self: flex-end;
+      color: #dec9e9;
+      background-color: #7251b5;
+    }
+
+    .confirm {
+      border: none;
+      border-radius: 5px;
+      padding: 7px 17px;
+      cursor: pointer;
+      transition-duration: 0.25s;
+      font-weight: 700;
+      background-color: #7251b5;
+      color: #dec9e9;
+      margin-top: 110%;
+    }
+
+    .confirm:hover {
+      background-color: #dec9e9;
+      color: #7251b5;
+    }
+
+    .iconTitle {
+      display: flex;
+      text-align: center;
+    }
+  }
+}

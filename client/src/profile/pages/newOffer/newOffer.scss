@@ -1,0 +1,220 @@
+.new {
+  width: 100%;
+  display: flex;
+
+  .newContainer {
+    flex: 6;
+
+    .topNewOffer {
+      width: 100%;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #7251b5;
+    }
+
+    .bottomNewOffer {
+      position: absolute;
+      bottom: 0;
+      height: 70px;
+      background-color: #7251b5;
+      width: 85.5%;
+    }
+
+    .bottomOffer {
+      box-shadow: 3px 3px 4px 1px rgba(114, 114, 114, 0.47);
+      height: 65%;
+    }
+
+    .topOffer,
+    .bottomOffer {
+      padding: 10px;
+      margin: 20px;
+      display: flex;
+      border-radius: 7px;
+      background-color: white;
+
+      h1 {
+        color: lightgray;
+        font-size: 20px;
+      }
+
+      .left {
+        flex: 1;
+        text-align: center;
+
+        img {
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+
+      .right {
+        flex: 2;
+
+        form {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 30px;
+          justify-content: space-between;
+
+          .selectRooms {
+            width: 100%;
+
+            select {
+              width: 100%;
+              padding: 10px;
+            }
+          }
+
+          .formInput {
+            width: 40%;
+
+            textarea {
+              padding: 5px;
+              width: 230px;
+              height: 60px;
+            }
+
+            label {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+            }
+
+            input {
+              width: 70%;
+              padding: 5px;
+              border: none;
+              border-bottom: 2px solid #7251b5 !important;
+            }
+          }
+
+          .sendButtonOffer {
+            position: relative;
+            width: 150px;
+            padding: 10px;
+            border: none;
+            background-color: #7251b5;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 8%;
+            margin-left: 20%;
+            border-radius: 7px;
+            font-size: 15px;
+            letter-spacing: 3px;
+          }
+
+          .sendButtonOffer:hover {
+            background-color: #dec9e9;
+            color: #7251b5;
+          }
+        }
+      }
+    }
+  }
+}
+
+.roomTransport {
+  display: flex;
+}
+
+.wrapHalf {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 20px;
+}
+
+.wrapSecondHalf {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 20px;
+}
+
+.checkHalf {
+  width: 200%;
+}
+
+.dateHalf {
+  width: 100%;
+  margin-top: 10%;
+}
+
+.commodity {
+  display: flex;
+  margin-top: 3px;
+}
+
+.commodity2 {
+  display: flex;
+  flex: 1;
+}
+
+.commodityCheck {
+  display: flex;
+  flex: 2;
+  accent-color: #7251b5;
+}
+
+.date2 {
+  position: absolute;
+  top: 47%;
+  left: 20%;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.formIcon {
+  display: flex;
+  height: 30px;
+  text-align: center;
+}
+
+.wrapdiv {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.formInput1 {
+  width: 100% !important;
+}
+
+.formInputCountry {
+  width: 60% !important;
+}
+
+.inputDesc {
+  margin-bottom: 5px;
+}
+
+.inputChoose {
+  border: 2px solid #7251b5;
+  border-radius: 5px 5px 0px 0px;
+  outline: none;
+  background-color: #7251b5;
+  color: white;
+}
+
+.inputCountry {
+  border-bottom: 2px solid #7251b5 !important;
+}
+
+.borderColor {
+  border: 2px solid #7251b5;
+  border-radius: 4px;
+  outline: none;
+}
+
+.headerSearchTextOffer {
+  color: #7251b5 !important;
+  font-weight: 700;
+}
