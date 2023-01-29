@@ -1,0 +1,26 @@
+.profileList {
+  display: flex;
+  width: 100%;
+  background-color: white;
+  .profileListContainer {
+    flex: 6;
+    background-color: #dec9e9;
+
+    .topList {
+      width: 100%;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #7251b5;
+    }
+
+    .bottomList {
+      position: absolute;
+      bottom: 0;
+      height: 70px;
+      background-color: #7251b5;
+      width: 85.5%;
+    }
+  }
+}
