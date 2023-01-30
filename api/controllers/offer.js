@@ -54,7 +54,7 @@ export const getOffers = async (req, res, next) => {
     return;
   }
 
-  const { search1, search2, search3, startDate, endDate } = req.query;
+  const { search1, search2, search3, startDate, endDate} = req.query;
   console.log(search1, search2, search3, startDate, endDate);
 
   let queryObject = {};
@@ -120,3 +120,48 @@ export const getOffers = async (req, res, next) => {
     next(err);
   }
 };
+
+export const countByContinent = async (req,res,next) => {
+  const continents = req.query.continents.split(",")
+
+  try{
+      const list = await Promise.all(continents.map(continent =>{
+          return Offer.countDocuments({continent:continent})
+      }))
+      res.status(200).json(list)
+  }catch(err){
+      next(err)
+  }
+}
+
+
+export const countByCountry = async (req,res,next) => {
+  try{
+      const country1 = await Offer.countDocuments({country:"Canada"})
+      const country2 = await Offer.countDocuments({country:"Japan"})
+      const country3 = await Offer.countDocuments({country:"Spain"})
+      const country4 = await Offer.countDocuments({country:"China"})
+      const country5 = await Offer.countDocuments({country:"Turkey"})
+      const country6 = await Offer.countDocuments({country:"France"})
+
+      res.status(200).json([
+          {country:"Canada", count: country1},
+          {country:"Japan", count: country2},
+          {country:"Spain", count: country3},
+          {country:"China", count: country4},
+          {country:"Turkey", count: country5},
+          {country:"France", count: country6},
+      ]);
+  }catch(err){
+      next(err)
+  }
+}
+
+export const getSample = async (req,res,next) => {
+  try{
+    const offers = await Offer.aggregate([{$sample: { size: 4 }}])
+    res.status(200).json(offers)
+  }catch(err){
+    next(err)
+  }
+}

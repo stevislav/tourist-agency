@@ -41,6 +41,11 @@ const PendingOfferSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  isAccepted: {
+    type: Boolean,
+    required: true,
+    default: false
+  },
 });
 
 export default mongoose.model("PendingOffer", PendingOfferSchema);
