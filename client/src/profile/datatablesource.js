@@ -86,4 +86,14 @@ export const pendingOfferColumns = [
     headerName: "Comment",
     width: 120,
   },
+  {
+    field: "isAccepted",
+    headerName: "Accepted?",
+    width: 120,
+    cellClassName: (params) =>
+      clsx({
+        activeState: params.value === true,
+        inactiveState: params.value === false,
+      }),
+  },
 ];

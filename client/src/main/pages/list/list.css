@@ -1,0 +1,94 @@
+.listContainer {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  height: 100%;
+}
+
+.listWrapper {
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.listResult {
+  flex: 3;
+}
+
+.nextPage,
+.prevPage {
+  background-color: #dec9e9;
+  padding: 6px 13px;
+  border-radius: 4px;
+  color: #7251b5;
+  border: 2px solid #7251b5;
+  margin-top: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.prevPage:disabled,
+.nextPage:disabled {
+  background-color: gray;
+  color: white;
+  border: 1px solid gray;
+  cursor: default;
+}
+
+.prevPage:disabled:hover,
+.nextPage:disabled:hover {
+  background-color: gray;
+  color: white;
+  border: 1px solid gray;
+}
+
+.nextPage:hover,
+.prevPage:hover {
+  background-color: #7251b5;
+  color: #dec9e9;
+}
+
+.buttonPageWrapper {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  margin-top: 10px;
+}
+
+.buttonPageWrapper2 {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  margin-bottom: 30px;
+}
+
+.pageSize {
+  align-items: center;
+}
+
+.pageSize label {
+  margin-right: 5px;
+}
+
+.buttonsPage label {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.loader {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.nOffers {
+  display: flex;
+  margin-top: 150px;
+  color: #7251b5;
+  font-size: 30px;
+  font-weight: 700;
+}

@@ -1,7 +1,8 @@
 import "./datatable.scss";
-import { DataGrid } from "@mui/x-data-grid";
-import { Link, useLocation } from "react-router-dom";
-import React, { useState } from "react";
+import { DataGrid, GridFilterModel } from "@mui/x-data-grid";
+import { userColumns, userRows } from "../../datatablesource";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import React, { useContext, useState } from "react";
 import useFetch from "../../hooks/useFetch.js";
 import { useEffect } from "react";
 import axios from "axios";
@@ -9,7 +10,12 @@ import StoreIcon from "@mui/icons-material/Store";
 import PersonIcon from "@mui/icons-material/Person";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 
+import { SearchContext } from "../../../main/context/SearchContext";
+
 const Datatable = ({ columns }) => {
+  const { dates, options } = useContext(SearchContext);
+
+  const navigate = useNavigate();
   const location = useLocation();
   const path = location.pathname.split("/")[2];
 
@@ -76,7 +82,26 @@ const Datatable = ({ columns }) => {
     } catch (err) {}
   };
 
+  const handleSetAccepted = async (e) => {
+    const confirmation = window.confirm("Are you sure?");
+    if (!confirmation) {
+      return;
+    }
+    try {
+      const id =
+        e.target.parentElement.parentElement.parentElement.parentElement
+          .children[0].children[0].textContent;
+      await axios.put(`/pendingoffers/${id}`, { isAccepted: true });
+      e.preventDefault();
+      reFetch();
+    } catch (err) {}
+  };
+
   const handleDelete = async (id) => {
+    const confirmation = window.confirm("Are you sure?");
+    if (!confirmation) {
+      return;
+    }
     try {
       await axios.delete(`/${path}/${id}`);
       setList(list.filter((item) => item._id !== id));
@@ -109,6 +134,23 @@ const Datatable = ({ columns }) => {
                 )}
               </>
             )}
+            {path === "pendingoffers" && (
+              <Link
+                to={`/offers/${params.row.offerID}`}
+                style={{ textDecoration: "none" }}
+              >
+                <div className="viewButton">View</div>
+              </Link>
+            )}
+            {(userData.isAdmin || userData.isStaff) &&
+              path === "pendingoffers" && (
+                <Link
+                  onClick={handleSetAccepted}
+                  style={{ textDecoration: "none" }}
+                >
+                  <div className="viewButton">Accept</div>
+                </Link>
+              )}
             <div
               className="deleteButton"
               onClick={() => handleDelete(params.row._id)}
