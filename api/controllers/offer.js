@@ -59,31 +59,22 @@ export const getOffers = async (req, res, next) => {
 
   let queryObject = {};
   if (search1 !== "") {
-    const S1firstLetter = search1.charAt(0).toUpperCase();
-    const S1rest = search1.slice(1);
-    const upperS1 = S1firstLetter + S1rest;
-    queryObject["$or"] = [{ name: upperS1 }, { location: { $all: [upperS1] } }];
+
+    queryObject["$or"] = [{ name: new RegExp('.*' + search1 + '.*', "i") }, { location: { $all: [new RegExp('.*' + search1 + '.*')] }}];
     //queryObject.name=search1
     //queryObject.location={ $all: [search1]}
   }
   if (search2 !== "") {
-    const S2firstLetter = search2.charAt(0).toUpperCase();
-    const S2rest = search2.slice(1);
-    const upperS2 = S2firstLetter + S2rest;
     queryObject["$and"] = [
       {
-        $or: [{ continent: upperS2 }, { country: upperS2 }],
+        $or: [{ continent: new RegExp('.*' + search2 + '.*', "i") }, { country: new RegExp('.*' + search2 + '.*', "i") }],
       },
     ];
     //queryObject.continent=search2
     //queryObject.country=search2
   }
   if (search3 !== "") {
-    const S3firstLetter = search3.charAt(0).toLowerCase();
-    const S3rest = search3.slice(1).toLowerCase();
-    const lowerS3 = S3firstLetter + S3rest;
-    console.log(lowerS3);
-    queryObject.transportType = lowerS3;
+    queryObject.transportType = new RegExp('.*' + search3 + '.*', "i");
   }
 
   //queryObject["startDate"]={ "$gte": new Date(startDate)}
