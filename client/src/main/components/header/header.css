@@ -1,0 +1,154 @@
+.header {
+  background-color: #dec9e9;
+  color: #7251b5;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.headerContainer {
+  width: 100%;
+  max-width: 1024px;
+  margin: 20px 0px 60px 0px;
+}
+
+.headerContainer {
+  width: 100%;
+  max-width: 1024px;
+}
+
+.headerList {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+.headerListItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.headerDesc {
+  margin: 20px 0px;
+}
+
+.headerBtn {
+  background-color: #7251b5;
+  color: #dec9e9;
+  font-weight: 500;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.headerBtn:hover {
+  background-color: #7251b5d0;
+}
+
+.headerSearch {
+  height: 30px;
+  background-color: white;
+  border: 3px solid #7251b5;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px 0px;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 1024px;
+}
+
+.headerIcon {
+  color: rgb(211, 211, 211);
+}
+
+.locationsIcon {
+  color: rgba(128, 128, 128, 0.404) !important;
+  font-size: 13px !important;
+  padding: 5px 10px 5px 5px;
+}
+
+.headerSearchItem {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.headerSearchInput {
+  border: none;
+  outline: none;
+}
+
+.headerSearchText {
+  color: rgb(182, 182, 182);
+  cursor: pointer;
+}
+
+.date {
+  position: absolute;
+  top: 250px;
+  right: 480px;
+  z-index: 2;
+  border: 1px solid #dec9e9;
+}
+
+.nameModal,
+.ccModal,
+.transportModal {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 245px;
+  background-color: white;
+  height: 140px;
+  width: 180px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.nameModal {
+  left: 470px;
+}
+
+.ccModal {
+  left: 700px;
+}
+
+.transportModal {
+  right: 800px;
+}
+
+.singleItem {
+  border-bottom: 1px solid gray;
+  font-size: 17px;
+  padding-left: 5px;
+}
+
+.singleItem:hover {
+  background-color: rgba(128, 128, 128, 0.356);
+}
+
+.allOffers {
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 700;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition-duration: 0.25s;
+  border: 1px solid #dec9e9;
+  text-transform: uppercase;
+}
+
+.allOffers:hover {
+  border: 1px solid #7251b5;
+  border-radius: 5px;
+}
+
+.offerIcon {
+  color: #7251b5;
+  margin-right: 5px;
+}

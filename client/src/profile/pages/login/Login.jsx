@@ -57,7 +57,15 @@ const Login = () => {
         <button disabled={loading} onClick={handleClick}>
           Login
         </button>
-        {error && <span>{error.message}</span>}
+        {error && <span className="errorMsg2">{error.message}</span>}
+        <button
+          className="homePageButton2"
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          Back to homepage
+        </button>
       </div>
     </div>
   );

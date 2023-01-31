@@ -1,7 +1,7 @@
 import axios from "axios";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../../context/AuthContext";
+
 import "./register.scss";
 
 const Register = () => {
@@ -14,8 +14,9 @@ const Register = () => {
     phoneNumber: undefined,
   });
 
-  let error = "";
-  // const navigate = useNavigate();
+  const [error, setError] = useState(undefined);
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
@@ -27,9 +28,9 @@ const Register = () => {
     try {
       const newUser = { ...credentials };
       await axios.post("/auth/register", newUser);
-      error = "Successfully registered";
+      setError("Successfully registered");
     } catch (err) {
-      console.log(err);
+      setError("Invalid inputs!");
     }
   };
 
@@ -91,10 +92,23 @@ const Register = () => {
             className="lInput"
           />
         </div>
+
         <button onClick={handleClick} className="lButton">
           Register
         </button>
-        {error === "" ? <span>{error}</span> : <span></span>}
+        {error !== undefined ? (
+          <span className="errorMsg">{error}</span>
+        ) : (
+          <span></span>
+        )}
+        <button
+          className="homePageButton"
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          Back to homepage
+        </button>
       </div>
     </div>
   );
