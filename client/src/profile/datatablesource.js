@@ -84,7 +84,7 @@ export const pendingOfferColumns = [
   {
     field: "comment",
     headerName: "Comment",
-    width: 120,
+    width: 150,
   },
   {
     field: "isAccepted",

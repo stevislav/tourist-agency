@@ -25,12 +25,12 @@ const PropertyList = () => {
   };
 
   const images = [
-    "https://cf.bstatic.com/xdata/images/xphoto/square300/57584488.webp?k=bf724e4e9b9b75480bbe7fc675460a089ba6414fe4693b83ea3fdd8e938832a6&o=",
-    "https://cf.bstatic.com/static/img/theme-index/carousel_320x240/card-image-apartments_300/9f60235dc09a3ac3f0a93adbc901c61ecd1ce72e.jpg",
-    "https://cf.bstatic.com/static/img/theme-index/carousel_320x240/bg_resorts/6f87c6143fbd51a0bb5d15ca3b9cf84211ab0884.jpg",
-    "https://cf.bstatic.com/static/img/theme-index/carousel_320x240/card-image-villas_300/dd0d7f8202676306a661aa4f0cf1ffab31286211.jpg",
-    "https://cf.bstatic.com/static/img/theme-index/carousel_320x240/card-image-chalet_300/8ee014fcc493cb3334e25893a1dee8c6d36ed0ba.jpg",
-    "https://cf.bstatic.com/static/img/theme-index/carousel_320x240/card-image-chalet_300/8ee014fcc493cb3334e25893a1dee8c6d36ed0ba.jpg",
+    "https://www.state.gov/wp-content/uploads/2019/04/Canada-e1556023963820-2500x1406.jpg",
+    "https://www.state.gov/wp-content/uploads/2019/04/Japan-2107x1406.jpg",
+    "https://cdn.kimkim.com/files/a/content_articles/featured_photos/cc69c4c0f212bde8cdade44534ed11990719e6bf/big-968762e16f26380a23cc511a9cb4ccc5.jpg",
+    "https://cdn.britannica.com/89/179589-138-3EE27C94/Overview-Great-Wall-of-China.jpg?w=800&h=450&c=crop",
+    "https://media.worldnomads.com/Explore/middle-east/hagia-sophia-church-istanbul-turkey-gettyimages-skaman306.jpg",
+    "https://www.state.gov/wp-content/uploads/2018/11/France-1980x1406.jpg",
   ];
   return (
     <div className="pList">

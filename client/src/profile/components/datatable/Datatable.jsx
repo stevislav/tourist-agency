@@ -9,6 +9,7 @@ import axios from "axios";
 import StoreIcon from "@mui/icons-material/Store";
 import PersonIcon from "@mui/icons-material/Person";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
+import DotLoader from "react-spinners/DotLoader";
 
 import { SearchContext } from "../../../main/context/SearchContext";
 
@@ -182,6 +183,17 @@ const Datatable = ({ columns }) => {
       break;
   }
 
+  const loader = (
+    <DotLoader
+      color={"#7251b5c4"}
+      loading={loading}
+      size={150}
+      aria-label="Loading Spinner"
+      data-testid="loader"
+      className="loader"
+    />
+  );
+
   return (
     <div className="datatable">
       <div className="datatableTitle">
@@ -195,14 +207,18 @@ const Datatable = ({ columns }) => {
           </Link>
         )}
       </div>
-      <DataGrid
-        className="datagrid"
-        rows={list}
-        columns={columns.concat(actionColumn)}
-        pageSize={9}
-        rowsPerPageOptions={[9]}
-        getRowId={(row) => row._id}
-      />
+      {loading ? (
+        loader
+      ) : (
+        <DataGrid
+          className="datagrid"
+          rows={list}
+          columns={columns.concat(actionColumn)}
+          pageSize={9}
+          rowsPerPageOptions={[9]}
+          getRowId={(row) => row._id}
+        />
+      )}
     </div>
   );
 };

@@ -174,16 +174,24 @@
   position: absolute;
   top: 20px;
   right: 20px;
-  font-size: 30px;
-  color: lightgray;
+  font-size: 40px !important;
+  color: white;
   cursor: pointer;
+}
+
+.close:hover {
+  color: #5b4091;
 }
 
 .arrow {
   margin: 20px;
-  font-size: 50px;
+  font-size: 50px !important;
   cursor: pointer;
-  color: lightgray;
+  color: white;
+}
+
+.arrow:hover {
+  color: #5b4091;
 }
 
 .display {
@@ -196,13 +204,14 @@
   margin-right: 7px;
   flex: 1;
   color: #7251b5;
+  font-weight: bold;
 }
 
 .display div {
   display: flex;
   flex: 16;
   color: #6247aa;
-  font-weight: bold;
+  font-weight: 500;
   text-align: justify;
   text-justify: inter-word;
 }

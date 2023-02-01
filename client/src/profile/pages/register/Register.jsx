@@ -6,15 +6,16 @@ import "./register.scss";
 
 const Register = () => {
   const [credentials, setCredentials] = useState({
-    username: undefined,
-    email: undefined,
-    password: undefined,
-    fName: undefined,
-    lName: undefined,
-    phoneNumber: undefined,
+    username: "",
+    email: "",
+    password: "",
+    fName: "",
+    lName: "",
+    phoneNumber: "",
   });
 
-  const [error, setError] = useState(undefined);
+  const [cPassword, setCPassword] = useState("");
+  const [error, setError] = useState("");
 
   const navigate = useNavigate();
 
@@ -24,13 +25,27 @@ const Register = () => {
   };
 
   const handleClick = async (e) => {
+    setError("Working...");
+    if (cPassword !== credentials.password) {
+      setError("Passwords matching pls");
+      setTimeout(() => setError(""), 2000);
+      return;
+    }
+    console.log(cPassword);
     e.preventDefault();
     try {
       const newUser = { ...credentials };
       await axios.post("/auth/register", newUser);
       setError("Successfully registered");
+      setTimeout(() => setError(""), 5000);
     } catch (err) {
-      setError("Invalid inputs!");
+      if (typeof err.response.data === "string") {
+        setError(err.response.data);
+        setTimeout(() => setError(""), 2000);
+      } else {
+        setError("Enter all inputs");
+        setTimeout(() => setError(""), 2000);
+      }
     }
   };
 
@@ -53,6 +68,17 @@ const Register = () => {
             placeholder="Password"
             id="password"
             onChange={handleChange}
+            className="lInput"
+          />
+        </div>
+        <div className="user-box">
+          <input
+            type="password"
+            placeholder="Confirm password"
+            id="cPassword"
+            onChange={(e) => {
+              setCPassword(e.target.value);
+            }}
             className="lInput"
           />
         </div>
@@ -85,8 +111,8 @@ const Register = () => {
         </div>
         <div className="user-box">
           <input
-            type="text"
-            placeholder="Phone Number"
+            type="number"
+            placeholder="Phone Number (10 digits | start with 06)"
             id="phoneNumber"
             onChange={handleChange}
             className="lInput"

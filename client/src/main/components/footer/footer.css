@@ -1,23 +1,37 @@
-.footer{
-    width: 100%;
-    width: 1024px;
-    font-size: 12px;
+.secondFooter {
+  background-color: #dec9e9;
+  height: 70px;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.fLists{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 50px;
+.thirdFooter {
+  height: 70px;
+  background-color: #7251b5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  color: #dec9e9;
 }
 
-.fList{
-    list-style: none;
-    padding: 0;
+.listStudents {
+  display: flex;
+  gap: 55px;
+  margin-right: 39px;
 }
 
-.fListItem{
-    margin-bottom: 10px;
-    color: #003580;
-    cursor: pointer;
+li {
+  color: #7251b5;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  list-style-type: none;
+}
+
+li > span {
+  font-weight: bold;
 }
