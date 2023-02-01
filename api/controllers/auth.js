@@ -8,10 +8,42 @@ export const register = async (req, res, next) => {
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(req.body.password, salt);
 
+    const users = await User.distinct("username")
+    const emails = await User.distinct("email")
+    const phoneNumbers = await User.distinct("phoneNumber")
+
+    if(users.includes(req.body.username)){
+      res.status(418).send("Username in use")
+      return
+    }
+
+    if(emails.includes(req.body.email)){
+      res.status(418).send("E-mail in use")
+      return
+    }
+
+    if(phoneNumbers.includes(req.body.phoneNumber)){
+      res.status(418).send("Phone number in use")
+      return
+    }
+
+    const regexEMAIL = new RegExp(/.+@.+\..+/)
+    if(!regexEMAIL.test(req.body.email)){
+      res.status(418).send("Invalid E-mail")
+      return
+    }
+
+    const regexNUMBER = new RegExp(/06(.){8}/)
+    if(!regexNUMBER.test(req.body.phoneNumber)){
+      res.status(418).send("Invalid number")
+      return
+    }
+
     const newUser = new User({
       ...req.body,
       password: hash,
     });
+
 
     await newUser.save();
     res.status(200).send("User has been created.");
