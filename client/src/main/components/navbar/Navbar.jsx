@@ -4,14 +4,14 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
 const Navbar = () => {
-  const user = JSON.parse(localStorage.getItem("user"));
+  const storageUser = JSON.parse(localStorage.getItem("user"));
   const location = window.location;
   const navigate = useNavigate();
 
-  /*   window.onbeforeunload = function () {
-    localStorage.removeItem("user");
-    return "";
-  }; */
+  const { user } = useContext(AuthContext);
+  if (user === null && storageUser !== null) {
+    location.reload();
+  }
 
   const handleLogin = async (e) => {
     navigate("/login");

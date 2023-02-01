@@ -1,10 +1,4 @@
-import {
-  faCircleArrowLeft,
-  faCircleArrowRight,
-  faCircleXmark,
-  faLocationDot,
-  faScroll,
-} from "@fortawesome/free-solid-svg-icons";
+import { faLocationDot, faScroll } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
@@ -22,6 +16,9 @@ import DirectionsCarIcon from "@mui/icons-material/DirectionsCar";
 import TrainIcon from "@mui/icons-material/Train";
 import DirectionsBoatIcon from "@mui/icons-material/DirectionsBoat";
 import DirectionsBusIcon from "@mui/icons-material/DirectionsBus";
+import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import CloseIcon from "@mui/icons-material/Close";
 
 const Offer = () => {
   const location = useLocation();
@@ -50,6 +47,8 @@ const Offer = () => {
       className="loader"
     />
   );
+
+  console.log(user);
 
   //const days = dayDifference(dates[0].endDate, dates[0].startDate)
 
@@ -130,16 +129,12 @@ const Offer = () => {
         <div className="hotelContainer">
           {open && (
             <div className="slider">
-              <FontAwesomeIcon
-                icon={faCircleXmark}
-                className="close"
-                onClick={() => setOpen(false)}
-              />
-              <FontAwesomeIcon
-                icon={faCircleArrowLeft}
+              <CloseIcon className="close" onClick={() => setOpen(false)} />
+              <NavigateBeforeIcon
                 className="arrow"
                 onClick={() => handleMove("l")}
               />
+
               <div className="sliderWrapper">
                 <img
                   src={data.imgPerLocation[slideNumber]}
@@ -147,8 +142,7 @@ const Offer = () => {
                   className="sliderImg"
                 />
               </div>
-              <FontAwesomeIcon
-                icon={faCircleArrowRight}
+              <NavigateNextIcon
                 className="arrow"
                 onClick={() => handleMove("r")}
               />
@@ -239,9 +233,9 @@ const Offer = () => {
               </div>
             </div>
           </div>
-          <Footer />
         </div>
       )}
+      <Footer />
       {openModal && <Reserve setOpen={setOpenModal} offerId={id} />}
     </div>
   );

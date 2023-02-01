@@ -3,36 +3,37 @@ export const userInputs = [
     id: "username",
     label: "Username",
     type: "text",
-    placeholder: "klovan_smesko",
+    placeholder: "johnjones",
   },
   {
     id: "email",
     label: "E-mail",
     type: "email",
-    placeholder: "klovan_smesko@gmail.com",
+    placeholder: "john_jones@gmail.com",
   },
   {
     id: "FName",
     label: "First Name",
     type: "text",
-    placeholder: "Klovan",
+    placeholder: "John",
   },
   {
     id: "LName",
     label: "Last Name",
     type: "text",
-    placeholder: "Smesko",
+    placeholder: "Jones",
   },
   {
     id: "phoneNumber",
     label: "Phone",
     type: "text",
-    placeholder: "+1 234 567 89",
+    placeholder: "0612345678",
   },
   {
     id: "password",
     label: "Password",
     type: "password",
+    placeholder: "********",
   },
 ];
 

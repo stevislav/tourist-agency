@@ -24,16 +24,12 @@ const FeaturedProperties = () => {
                 <span className="fpName">{item.name}</span>
               </Link>
               <span className="fpCity">
-                Travel to {item.location[0]}
+                Travel to <span>{item.location[0]}</span>
                 {item.location[1] ? ", among others!" : "!"}
               </span>
-              <span className="fpPrice">Starting from ${item.price}</span>
-              {item.price && (
-                <div className="fpRating">
-                  <button>{item.price}</button>
-                  <span>Excellent</span>
-                </div>
-              )}
+              <div className="fpPrice">
+                Starting from <span>${item.price}</span>
+              </div>
             </div>
           ))}
         </>

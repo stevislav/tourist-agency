@@ -1,44 +1,56 @@
 .fp {
-    width: 100%;
-    max-width: 1024px;
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
 }
 
-.fpItem{
-    flex:1;
-    gap: 10px;
-    display: flex;
-    flex-direction: column;
+.fpItem {
+  flex: 1;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
-.fpImg{
-    width: 100%;
-    height: 210px;
+.fpImg {
+  width: 100%;
+  height: 210px;
+  border-radius: 4px;
 }
 
-.fpName{
-    font-weight: bold;
+.fpName {
+  font-weight: bold;
+  color: #7251b5;
 }
 
-.fpCity{
-    font-weight: 300;
+.fpCity {
+  font-weight: 300;
 }
 
-.fpPrice{
-    font-weight: 500;
+.fpCity > span {
+  font-weight: 500;
 }
 
-.fpRating>button{
-    background-color: #003580;
-    color: white;
-    border: none;
-    padding:3px;
-    margin-right: 10px;
-    font-weight: bold;
+.fpPrice {
+  font-weight: 300;
 }
 
-.fpRating>span{
-    font-size: 14px;
+.fpPrice > span {
+  color: green;
+  font-weight: 500;
+  font-size: 17px;
+}
+
+.fpRating > button {
+  background-color: #003580;
+  color: white;
+  border: none;
+  padding: 3px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.fpRating > span {
+  font-size: 14px;
 }
