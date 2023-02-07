@@ -67,6 +67,7 @@ const NewOffer = ({}) => {
   };
 
   const handleClick = async (e) => {
+    setErrorMessage("Working..");
     e.preventDefault();
     const startMS = new Date(dates[0]["startDate"]);
     const endMS = new Date(dates[0]["endDate"]);
@@ -129,7 +130,8 @@ const NewOffer = ({}) => {
         imgPerLocation: filesArray,
       };
       await axios.post("/offers", entry);
-      console.log(entry);
+      setErrorMessage("Successfully added offer!");
+      setTimeout(() => setErrorMessage(""), 3000);
     } catch (err) {
       console.log(err);
     }

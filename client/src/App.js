@@ -12,6 +12,7 @@ import {
   userColumns,
 } from "./profile/datatablesource";
 import NewOffer from "./profile/pages/newOffer/NewOffer";
+import EditOffer from "./profile/pages/editOffer/EditOffer";
 
 import Home from "./main/pages/home/Home";
 import List from "./main/pages/list/List";
@@ -84,7 +85,16 @@ function App() {
                   </ProtectedRoute>
                 }
               />
+              <Route
+                path="editoffer/:id"
+                element={
+                  <ProtectedRoute>
+                    <EditOffer inputs={offerInputs} title="Edit Offer" />
+                  </ProtectedRoute>
+                }
+              />
             </Route>
+
             <Route path="profile/pendingOffers">
               <Route
                 index
