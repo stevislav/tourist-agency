@@ -1,6 +1,5 @@
 import "./datatable.scss";
-import { DataGrid, GridFilterModel } from "@mui/x-data-grid";
-import { userColumns, userRows } from "../../datatablesource";
+import { DataGrid } from "@mui/x-data-grid";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import React, { useContext, useState } from "react";
 import useFetch from "../../hooks/useFetch.js";
@@ -109,11 +108,18 @@ const Datatable = ({ columns }) => {
     } catch (err) {}
   };
 
+  const handleEdit = async (e) => {
+    const id =
+      e.target.parentElement.parentElement.parentElement.parentElement
+        .children[0].children[0].textContent;
+    navigate(`/profile/${path}/editoffer/${id}`);
+  };
+
   const actionColumn = [
     {
       field: "action",
       headerName: "Action",
-      width: 300,
+      width: 250,
       renderCell: (params) => {
         return (
           <div className="cellAction">
@@ -152,6 +158,14 @@ const Datatable = ({ columns }) => {
                   <div className="viewButton">Accept</div>
                 </Link>
               )}
+            {userData.isAdmin && path === "offers" && (
+              <div
+                onClick={handleEdit} /* to={`/profile/${path}/editoffer`} */
+                style={{ textDecoration: "none" }}
+              >
+                <div className="viewButton">Edit</div>
+              </div>
+            )}
             <div
               className="deleteButton"
               onClick={() => handleDelete(params.row._id)}

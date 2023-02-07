@@ -1,3 +1,4 @@
+import { red } from "@mui/material/colors";
 import clsx from "clsx";
 
 export const userColumns = [
@@ -45,7 +46,8 @@ export const offerColumns = [
   {
     field: "name",
     headerName: "Name",
-    width: 120,
+    width: 200,
+    color: red,
   },
   {
     field: "location",
