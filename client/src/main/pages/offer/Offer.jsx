@@ -19,6 +19,10 @@ import DirectionsBusIcon from "@mui/icons-material/DirectionsBus";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import CloseIcon from "@mui/icons-material/Close";
+import {
+  faCalendarDays,
+  faCalendarXmark,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Offer = () => {
   const location = useLocation();
@@ -36,6 +40,21 @@ const Offer = () => {
   const navigate = useNavigate();
 
   const { dates, options } = useContext(SearchContext);
+
+  const readableStartDate = new Date(data.startDate);
+  const readableEndDate = new Date(data.endDate);
+  const currentDate = new Date();
+
+  let active = true;
+  let calendarIcon = (
+    <FontAwesomeIcon icon={faCalendarDays} className="iconCal" />
+  );
+  if (data.startDate - currentDate.getTime() < 0) {
+    active = false;
+    calendarIcon = (
+      <FontAwesomeIcon icon={faCalendarXmark} className="iconCal" />
+    );
+  }
 
   const loader = (
     <DotLoader
@@ -157,6 +176,13 @@ const Offer = () => {
                 <span>
                   {data.location === undefined ? "" : citiesBuilder()}
                 </span>
+              </span>
+            </div>
+            <div className="rangeDate">
+              {calendarIcon} <span className="dateColor">Date: </span>
+              <span className={active ? "siTaxiOp2" : "work2"}>
+                {readableStartDate.toDateString()} -{" "}
+                {readableEndDate.toDateString()}
               </span>
             </div>
             <div className="hotelTT">
