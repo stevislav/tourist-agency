@@ -3,6 +3,7 @@ import useFetch from "../../hooks/useFetch";
 import "./featuredProperties.css";
 
 const FeaturedProperties = () => {
+  // uzimamo 4 random ponude i prikazujemo
   const { data, loading, error, reFetch } = useFetch(
     "/offers/getSample?samples=4"
   );

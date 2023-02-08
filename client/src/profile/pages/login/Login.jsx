@@ -5,19 +5,24 @@ import { AuthContext } from "../../context/AuthContext.js";
 import "./login.scss";
 
 const Login = () => {
+  // definisanje promenljive i funkcije za njeno menjanje
   const [credentials, setCredentials] = useState({
     username: undefined,
     password: undefined,
   });
 
+  // loading za animaciju, error za poruku i dispatch za context
   const { loading, error, dispatch } = useContext(AuthContext);
 
+  // prebacivanje na drugu stranu van html-a
   const navigate = useNavigate();
 
+  // unete podatke ubacujemo u promenljivu
   const handleChange = (e) => {
     setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
+  // dugme za login koje odredjuje da li smo zadovoljili uslove za logovanje
   const handleClick = async (e) => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });

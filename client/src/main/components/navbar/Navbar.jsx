@@ -4,14 +4,15 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
 const Navbar = () => {
+  // refreshujemo navbar ukoliko je korisnik logovan zbog prikaza
   const storageUser = JSON.parse(localStorage.getItem("user"));
   const location = window.location;
-  const navigate = useNavigate();
-
   const { user } = useContext(AuthContext);
   if (user === null && storageUser !== null) {
     location.reload();
   }
+
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     navigate("/login");

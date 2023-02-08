@@ -4,14 +4,17 @@ import { useState } from "react";
 import axios from "axios";
 
 const NewUser = ({ inputs, title }) => {
+  // podaci novog korisnika
   const [info, setInfo] = useState({});
   const [errorMessage, setErrorMessage] = useState("");
 
+  // definise podatke novog korisnika
   const handleChange = (e) => {
     setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
     console.log(info);
   };
 
+  // vraca nam povratnu informaciju da li smo uneli usera kako treba
   const handleClick = async (e) => {
     setErrorMessage("Working..");
     e.preventDefault();
@@ -21,6 +24,7 @@ const NewUser = ({ inputs, title }) => {
       setErrorMessage("Successfully added user!");
       setTimeout(() => setErrorMessage(""), 3000);
     } catch (err) {
+      // ako je greska kao string onda vracamo poruku, a ako je axios greska onda vracamo default poruku
       if (typeof err.response.data === "string") {
         setErrorMessage(err.response.data);
         setTimeout(() => setErrorMessage(""), 2000);

@@ -8,6 +8,7 @@ import { useState } from "react";
 import axios from "axios";
 
 const Widget = ({ type, value, id }) => {
+  // podatak usera
   const [newValue, setNewValue] = useState("");
 
   const handleChange = (e) => {
@@ -17,20 +18,23 @@ const Widget = ({ type, value, id }) => {
   const location = window.location;
   const handleClick = async (e) => {
     try {
+      // cuvanje podataka u bazi
       const data = {};
       data[type] = newValue;
       await axios.put(`/users/${id}`, data);
+      // i azuriranje usera u lokalnom skladistu
       const savedUser = JSON.parse(localStorage.getItem("user"));
       localStorage.removeItem("user");
       savedUser[type] = newValue;
       localStorage.setItem("user", JSON.stringify(savedUser));
       location.reload();
-    } catch (err) { }
+    } catch (err) {}
   };
 
   let typeDisplay = "";
   let icon = "";
 
+  // svaki widget dobija svoje podatke
   switch (type) {
     case "username":
       typeDisplay = "Username";
@@ -74,7 +78,6 @@ const Widget = ({ type, value, id }) => {
         </button>
       </div>
     </div>
-
   );
 };
 

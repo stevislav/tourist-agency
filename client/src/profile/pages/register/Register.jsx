@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "./register.scss";
 
 const Register = () => {
+  // definisanje promenljive i funkcije za njeno menjanje
   const [credentials, setCredentials] = useState({
     username: "",
     email: "",
@@ -14,18 +15,24 @@ const Register = () => {
     phoneNumber: "",
   });
 
+  // confirm pass i error msg
   const [cPassword, setCPassword] = useState("");
   const [error, setError] = useState("");
 
+  // prebacivanje na drugi html
   const navigate = useNavigate();
 
+  // unete podatke ubacujemo u promenljivu
   const handleChange = (e) => {
     setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
     console.log(credentials);
   };
 
+  // dugme za register koje odredjuje da li smo zadovoljili uslove za registraciju
   const handleClick = async (e) => {
     setError("Working...");
+
+    // proveravamo da li su jednake lozinke
     if (cPassword !== credentials.password) {
       setError("Passwords matching pls");
       setTimeout(() => setError(""), 2000);
@@ -39,6 +46,7 @@ const Register = () => {
       setError("Successfully registered");
       setTimeout(() => setError(""), 5000);
     } catch (err) {
+      // ako je greska kao string onda vracamo poruku, a ako je axios greska onda vracamo default poruku
       if (typeof err.response.data === "string") {
         setError(err.response.data);
         setTimeout(() => setError(""), 2000);

@@ -40,10 +40,14 @@ const Header = ({
   const path = location.pathname.split("/");
   //console.log(path)
 
+  // da li su preporuke za search otvorene
   const [openSearch1, setOpenSearch1] = useState(false);
   const [openSearch2, setOpenSearch2] = useState(false);
   const [openSearch3, setOpenSearch3] = useState(false);
+  // isto to i za datume
   const [openDate, setOpenDate] = useState(false);
+
+  // ako smo na listi pokupi njene vrednosti
   const [dates, setDates] = useState(
     listDates === undefined
       ? [
@@ -56,9 +60,12 @@ const Header = ({
       : listDates
   );
 
+  // ako smo na listi pokupi njene vrednosti
   const [search1, setSearch1] = useState(S1 === undefined ? "" : S1);
   const [search2, setSearch2] = useState(S2 === undefined ? "" : S2);
   const [search3, setSearch3] = useState(S3 === undefined ? "" : S3);
+
+  // broj ponuda po stranici
   const [pageSize, setPageSize] = useState(50);
 
   const navigate = useNavigate();
@@ -67,6 +74,7 @@ const Header = ({
   const { dispatch } = useContext(SearchContext);
 
   const handleSearch = () => {
+    // zatvaramo dropdown menije
     setOpenSearch1(false);
     setOpenSearch2(false);
     setOpenSearch3(false);
@@ -77,22 +85,23 @@ const Header = ({
       payload: { search1, search2, search3, dates },
     });
 
+    // proverava da li smo na listi
     if (path[1] === "offers" && path.length === 2) {
+      // setujemo podatke iz liste
       setS1(search1);
       setS2(search2);
       setS3(search3);
       setDate(dates);
       setPageNumber(1);
-      // refetch(
-      //   `/offers?search1=${search1}&search2=${search2}&search3=${search3}&startDate=${dates[0]["startDate"]}&endDate=${dates[0]["endDate"]}&limit=1&page=1`
-      // );
     } else {
+      // u slucaju da nismo na listi usmereni smo tamo
       navigate("/offers", {
         state: { search1, search2, search3, dates, pageSize },
       });
     }
   };
 
+  // prikaz svih ponuda
   const handleOffers = () => {
     setSearch1("");
     setSearch2("");
@@ -100,6 +109,7 @@ const Header = ({
     handleSearch();
   };
 
+  // ako smo na stranici sa ponudom zatvaraju nam se dropdown meniji iz searcha
   useEffect(() => {
     if (openReserve === true) {
       setOpenSearch1(false);

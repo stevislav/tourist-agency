@@ -1,8 +1,8 @@
 import "./list.css";
 import Header from "../../components/header/Header";
 import Navbar from "../../components/navbar/Navbar";
-import { Link, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { useState } from "react";
 import SearchItem from "../../components/searchItem/SearchItem";
 import useFetch from "../../hooks/useFetch";
 import DotLoader from "react-spinners/DotLoader";
@@ -10,6 +10,9 @@ import DotLoader from "react-spinners/DotLoader";
 const List = () => {
   const location = useLocation();
 
+  // definisanje svakog u search pojedinacno
+  //
+  // posto se fetchuju podaci ovde, potrebno nam je da i ovde imamo promenljive za search, da bi mogao header da ih promeni i onda reFetchuje
   const [search1, setSearch1] = useState(location.state.search1);
   const [search2, setSearch2] = useState(location.state.search2);
   const [search3, setSearch3] = useState(location.state.search3);
@@ -24,6 +27,8 @@ const List = () => {
   const { data, loading, error, reFetch, newReFetch } = useFetch(fetchString);
   // console.log(data.length);
   console.log(data);
+
+  // loading animacija
   const loader = (
     <DotLoader
       color={"#7251b5c4"}
@@ -35,7 +40,7 @@ const List = () => {
     />
   );
 
-  console.log(loading);
+  // console.log(loading);
   return (
     <div>
       <Navbar />
@@ -67,7 +72,7 @@ const List = () => {
                   className="prevPage"
                   onClick={() => {
                     setPageNumber(pageNumber - 1);
-                    reFetch();
+                    // reFetch();
                   }}
                 >
                   Prev
@@ -78,7 +83,7 @@ const List = () => {
                   className="nextPage"
                   onClick={() => {
                     setPageNumber(pageNumber + 1);
-                    reFetch();
+                    // reFetch();
                   }}
                 >
                   Next
@@ -122,7 +127,7 @@ const List = () => {
                   className="prevPage"
                   onClick={() => {
                     setPageNumber(pageNumber - 1);
-                    reFetch();
+                    // reFetch();
                   }}
                 >
                   Prev
@@ -133,7 +138,7 @@ const List = () => {
                   className="nextPage"
                   onClick={() => {
                     setPageNumber(pageNumber + 1);
-                    reFetch();
+                    // reFetch();
                   }}
                 >
                   Next

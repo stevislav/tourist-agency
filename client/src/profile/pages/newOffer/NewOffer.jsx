@@ -9,7 +9,9 @@ import { format } from "date-fns";
 
 const NewOffer = ({}) => {
   const [errorMessage, setErrorMessage] = useState("");
+  // uploadovane slike
   const [files, setFiles] = useState("");
+  // podaci za ponudu
   const [info, setInfo] = useState({
     name: undefined,
     price: undefined,
@@ -29,9 +31,12 @@ const NewOffer = ({}) => {
     roomFridge: false,
   });
 
+  // prozor za datum
   const [openDate, setOpenDate] = useState(false);
+  // broj dana provedenih u ponudi
   const [days, setDays] = useState(0);
 
+  // datumi ponude
   const [dates, setDates] = useState([
     {
       startDate: new Date(),
@@ -40,9 +45,11 @@ const NewOffer = ({}) => {
     },
   ]);
 
+  // kad se promene unosi
   const handleChange = (e) => {
     setErrorMessage("");
     if (e.target.type === "checkbox") {
+      // checkbox cuva drugacije svoju vrednost
       setInfo((prev) => ({ ...prev, [e.target.id]: e.target.checked }));
     } else {
       if (
@@ -50,7 +57,9 @@ const NewOffer = ({}) => {
         e.target.id === "daysPerLocation" ||
         e.target.id === "descPerDay"
       ) {
+        // nizove unosimo drugacije
         const values = e.target.value.split(",");
+        // cuvamo ukupan broj unetih dana radi provera
         if (e.target.id === "daysPerLocation") {
           for (let i = 0; i < values.length; i++) {
             values[i] = parseInt(values[i]);
@@ -69,22 +78,26 @@ const NewOffer = ({}) => {
   const handleClick = async (e) => {
     setErrorMessage("Working..");
     e.preventDefault();
+    // inicijalizacija datuma
     const startMS = new Date(dates[0]["startDate"]);
     const endMS = new Date(dates[0]["endDate"]);
+
+    // spajanje datuma sa ostalim tipovima podataka
     const entryTest = {
       ...info,
       startDate: startMS.getTime(),
       endDate: endMS.getTime(),
     };
 
+    // proveramo da li je sve uneto
     for (const [key, value] of Object.entries(entryTest)) {
       if (value === undefined) {
         setErrorMessage("All inputs must be provided!");
-
         return;
       }
     }
 
+    // proveramo da li su nizovi iste duzine kao sto je u postavci zadato
     if (
       !(
         entryTest["location"].length === files.length &&
@@ -94,20 +107,20 @@ const NewOffer = ({}) => {
       setErrorMessage(
         "Number of pictures entered/days per locations must match number of locations!"
       );
-
       return;
     }
 
+    // da li svaki dan ima svoj opis
     if (!(entryTest["descPerDay"].length === days)) {
       setErrorMessage(
         "Number of descriptions must match total number of days!"
       );
-
       return;
     }
     // console.log(entry)
 
     try {
+      // uplodavanje slika
       const filesArray = [];
       const list = await Promise.all(
         Object.values(files).map(async (file) => {
@@ -122,7 +135,7 @@ const NewOffer = ({}) => {
           filesArray.push(url.url);
         })
       );
-      // ovo je sve za upload zakomentarisano
+      // sve informacije ubacujemo u bazu
       const entry = {
         ...info,
         startDate: startMS.getTime(),

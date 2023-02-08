@@ -196,6 +196,7 @@
 
 .display {
   display: flex;
+  flex-direction: column;
   margin-bottom: 15px;
 }
 
@@ -249,4 +250,18 @@
   width: max-content;
   padding: 4px 8px 5px 5px;
   border-radius: 5px;
+}
+
+.div {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.display > hr {
+  margin-top: 10px;
+  margin-left: auto;
+  width: 93%;
+  background-color: #dec9e9;
+  height: 1px;
+  border: none;
 }

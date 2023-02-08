@@ -8,18 +8,23 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import DotLoader from "react-spinners/DotLoader";
 
 const Home = () => {
+  // useFetch koristimo samo za looding da bi bilo interaktivno
   const { data, loading, error } = useFetch(`/users`);
+
+  // korisnikove vrednosti iz contexta
   const { user } = useContext(AuthContext);
 
   const values = Object.values(user).slice(1, 6);
   const keys = Object.keys(user).slice(1, 6);
 
+  // vrednosti i kljucevi za widgete
   const values1 = [values[0], values[2], values[3]];
   const keys1 = [keys[0], keys[2], keys[3]];
 
   const values2 = [values[1], values[4]];
   const keys2 = [keys[1], keys[4]];
 
+  // loading animacija
   const loader = (
     <DotLoader
       color={"#7251b5c4"}

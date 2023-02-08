@@ -8,6 +8,7 @@ const Featured = () => {
     "/offers/countByContinent?continents=Europe,North America,Australia"
   );
 
+  // pokrecemo predefinisanu pretragu po kontinentu
   const handleOnClickSearch = (continent) => {
     const search1 = "";
     const search2 = continent;
