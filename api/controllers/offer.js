@@ -58,9 +58,12 @@ export const getOffers = async (req, res, next) => {
   console.log(search1, search2, search3, startDate, endDate);
 
   let queryObject = {};
+  let queryObject2 = {};
   if (search1 !== "") {
 
     queryObject["$or"] = [{ name: new RegExp('.*' + search1 + '.*', "i") }, { location: { $all: [new RegExp('.*' + search1 + '.*')] }}];
+    queryObject2["$or"] = [{ name: new RegExp('.*' + search1 + '.*', "i") }, { location: { $all: [new RegExp('.*' + search1 + '.*')] }}];
+
     //queryObject.name=search1
     //queryObject.location={ $all: [search1]}
   }
@@ -70,11 +73,19 @@ export const getOffers = async (req, res, next) => {
         $or: [{ continent: new RegExp('.*' + search2 + '.*', "i") }, { country: new RegExp('.*' + search2 + '.*', "i") }],
       },
     ];
+    queryObject2["$and"] = [
+      {
+        $or: [{ continent: new RegExp('.*' + search2 + '.*', "i") }, { country: new RegExp('.*' + search2 + '.*', "i") }],
+      },
+    ];
+
     //queryObject.continent=search2
     //queryObject.country=search2
   }
   if (search3 !== "") {
     queryObject.transportType = new RegExp('.*' + search3 + '.*', "i");
+    queryObject2.transportType = new RegExp('.*' + search3 + '.*', "i");
+
   }
 
   //queryObject["startDate"]={ "$gte": new Date(startDate)}
@@ -82,30 +93,97 @@ export const getOffers = async (req, res, next) => {
 
   if (startDate === endDate) {
     const startDateMS = new Date(startDate);
+    const startDateMS2 = new Date();
     queryObject.startDate = { $gt: startDateMS.getTime() };
+    queryObject2.startDate = { $gt: startDateMS2.getTime() };
+
     // queryObject.range={
     //     "$gte": startDateMS.getTime()
     // }
   } else {
     const startDateMS = new Date(startDate);
     const endDateMS = new Date(endDate);
+    const startDateMS2 = new Date();
+    const endDateMS2 = new Date(endDate);
 
     queryObject.startDate = { $gt: startDateMS.getTime() };
     queryObject.endDate = { $lt: endDateMS.getTime() };
+    queryObject2.startDate = { $gt: startDateMS2.getTime() };
+    queryObject2.endDate = { $lt: endDateMS2.getTime() };
+
   }
   const pageNum = req.query.page - 1;
   const pageLimit = req.query.limit;
   const queryLimit = req.query.limit;
 
-  console.log(queryObject);
+  //console.log(req.query)
+
+  //console.log(queryObject);
 
   try {
-    const offers = await Offer.find(queryObject)
+    const offersLength = await Offer.countDocuments(queryObject)
+    const offersLength2 = await Offer.countDocuments(queryObject2)
+
+    const maxPageNum = Math.floor(offersLength2/pageLimit)
+    let offers2 = await Offer.find(queryObject2)
       .sort({ startDate: 1 })
-      .skip(pageNum * pageLimit)
+      .skip(Math.min(pageNum, maxPageNum) * pageLimit)
       .limit(queryLimit);
-    res.status(200).json(offers);
-    console.log(offers.length);
+
+    console.log("offers2 before ", offers2.length)
+    console.log(parseInt(pageNum*pageLimit)+parseInt(pageLimit))
+
+    if(
+      (offersLength>offersLength2)
+       && 
+       (
+        ( parseInt(pageNum*pageLimit)+parseInt(pageLimit) )>offersLength2
+       )
+      ){
+      const offers = await Offer.find(queryObject)
+      .sort({ startDate: 1 })
+      .limit(offersLength-offersLength2);
+      //console.log(offers)
+      offers2 = offers2.concat(offers)
+      const editedPageNum = pageNum-Math.floor(offersLength2/pageLimit)
+      console.log(pageNum,pageLimit,editedPageNum)
+
+      if(offers2.length>pageLimit){
+        const slicedOffers = offers2.slice(editedPageNum * pageLimit,editedPageNum * pageLimit+pageLimit)
+        offers2 = slicedOffers
+      }else{
+        const slicedOffers = offers2.slice(editedPageNum * pageLimit)
+        offers2 = slicedOffers
+
+      }
+      
+
+    }
+    
+    console.log(offersLength, offersLength2)
+    console.log("offers2 after ", offers2.length)
+
+
+    //console.log(offers.length);
+    //console.log(offers2.length);
+    // const slicedOffers = offers.slice(0,offers.length-offers2.length)
+    
+    // let sortedOffers = offers2.concat(slicedOffers)
+    // console.log(sortedOffers.length)
+    // console.log(offersLength, offersLength2)
+    // console.log(offersLength-offersLength2)
+
+    // let slicedSortedOffers;
+    // if(sortedOffers.length<(pageNum*pageLimit+pageLimit)){
+    //   slicedSortedOffers = sortedOffers.slice(pageNum*pageLimit)
+    // }else{
+    //   slicedSortedOffers = sortedOffers.slice(pageNum*pageLimit,pageNum*pageLimit+pageLimit)
+    // }
+
+    //console.log(slicedSortedOffers.length)
+      
+    res.status(200).json(offers2);
+    
     //console.log(search1, search2, search3, startDate, endDate)
   } catch (err) {
     next(err);
