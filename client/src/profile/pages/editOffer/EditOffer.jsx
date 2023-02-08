@@ -5,18 +5,18 @@ import { useEffect, useState } from "react";
 import { offerInputs } from "../../formSource";
 import axios from "axios";
 import { DateRange } from "react-date-range";
-import { format, set } from "date-fns";
+import { format } from "date-fns";
 import { useLocation } from "react-router-dom";
-import useFetch from "../../../profile/hooks/useFetch";
 
 const EditOffer = ({}) => {
+  // useLocation da se docepamo id-a iz URL-a
   const location = useLocation();
   const idnums = location.pathname.split("/");
   const editID = idnums[idnums.length - 1]; //uvek se docepa poslednjeg clana, sto je id
-  // const { data, loading, error } = useFetch(`/offers/find/${editID}`);
 
   const [data, setData] = useState({});
   const handler = async () => {
+    // zbog kasnjenja podataka koristimo fetch umesto useFetcha
     const response = await fetch(`/offers/find/${editID}`);
     const data = await response.json();
     setData(data);
@@ -84,9 +84,11 @@ const EditOffer = ({}) => {
     },
   ]);
 
+  // kad se promene unosi
   const handleChange = (e) => {
     setErrorMessage("");
     if (e.target.type === "checkbox") {
+      // checkbox cuva drugacije svoju vrednost
       setInfo((prev) => ({ ...prev, [e.target.id]: e.target.checked }));
     } else {
       if (
@@ -94,8 +96,10 @@ const EditOffer = ({}) => {
         e.target.id === "daysPerLocation" ||
         e.target.id === "descPerDay"
       ) {
+        // nizove unosimo drugacije
         const values = e.target.value.split(",");
         if (e.target.id === "daysPerLocation") {
+          // cuvamo ukupan broj unetih dana radi provera
           for (let i = 0; i < values.length; i++) {
             values[i] = parseInt(values[i]);
           }
@@ -113,13 +117,16 @@ const EditOffer = ({}) => {
   const handleClick = async (e) => {
     setErrorMessage("Working..");
     e.preventDefault();
+    // inicijalizacija datuma
     const startMS = new Date(dates[0]["startDate"]);
     const endMS = new Date(dates[0]["endDate"]);
+    // spajanje datuma sa ostalim tipovima podataka
     const entryTest = {
       ...info,
       startDate: startMS.getTime(),
       endDate: endMS.getTime(),
     };
+    // proveramo da li je sve uneto
 
     for (const [key, value] of Object.entries(entryTest)) {
       if (value === undefined) {
@@ -127,6 +134,8 @@ const EditOffer = ({}) => {
         return;
       }
     }
+
+    // proveramo da li su nizovi iste duzine kao sto je u postavci zadato
 
     if (files === "") {
       if (
@@ -154,6 +163,7 @@ const EditOffer = ({}) => {
       }
     }
 
+    // da li svaki dan ima svoj opis
     if (!(entryTest["descPerDay"].length === days)) {
       setErrorMessage(
         "Number of descriptions must match total number of days!"
@@ -163,7 +173,9 @@ const EditOffer = ({}) => {
     // console.log(entry)
 
     if (files === "") {
+      // ako slike nisu menjane, nije nam potreban upload
       try {
+        // sve informacije ubacujemo u bazu
         const entry = {
           ...info,
           startDate: startMS.getTime(),
@@ -178,6 +190,7 @@ const EditOffer = ({}) => {
       }
     } else {
       try {
+        // uplodavanje slika
         const filesArray = [];
         const list = await Promise.all(
           Object.values(files).map(async (file) => {
@@ -192,7 +205,7 @@ const EditOffer = ({}) => {
             filesArray.push(url.url);
           })
         );
-        // ovo je sve za upload zakomentarisano
+        // sve informacije ubacujemo u bazu
         const entry = {
           ...info,
           startDate: startMS.getTime(),

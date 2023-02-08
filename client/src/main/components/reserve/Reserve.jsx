@@ -2,15 +2,9 @@ import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-
-import useFetch from "../../hooks/useFetch";
 import "./reserve.css";
 
 const Reserve = ({ setOpen, offerId }) => {
-  const [selectedRooms, setSelectedRooms] = useState([]);
-  const { data, loading, error, reFetch } = useFetch(`/hotels/room/${offerId}`);
-
   const savedUser = JSON.parse(localStorage.getItem("user"));
   console.log(savedUser);
 
@@ -23,12 +17,7 @@ const Reserve = ({ setOpen, offerId }) => {
   const [paymentType, setPaymentType] = useState("cash");
   const [comment, setComment] = useState("");
 
-  //console.log(fName,lName,email,phoneNumber,numOfAdults,numOfChildren,paymentType)
-
-  const handleSelect = (e) => {};
-
-  const navigate = useNavigate();
-
+  // unosimo rezervaciju u bazu
   const handleClick = async () => {
     const newPendingOffer = {
       offerID: offerId,

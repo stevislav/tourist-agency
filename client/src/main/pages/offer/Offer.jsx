@@ -7,7 +7,6 @@ import "./offer.css";
 import { useContext, useState } from "react";
 import useFetch from "../../hooks/useFetch";
 import { useLocation, useNavigate } from "react-router-dom";
-import { SearchContext } from "../../context/SearchContext";
 import { AuthContext } from "../../context/AuthContext";
 import Reserve from "../../components/reserve/Reserve";
 import DotLoader from "react-spinners/DotLoader";
@@ -25,21 +24,22 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const Offer = () => {
+  // useLocation se koristi za putanju
   const location = useLocation();
   const idnums = location.pathname.split("/");
   const id = idnums[idnums.length - 1]; //uvek se docepa poslednjeg clana, sto je id
 
   const [slideNumber, setSlideNumber] = useState(0);
+  // openModali za rezervaciju i slike
   const [open, setOpen] = useState(false);
   const [openModal, setOpenModal] = useState(false);
 
   const { data, loading, error, reFetch } = useFetch(`/offers/find/${id}`);
   console.log(data);
 
+  // podaci korisnika iz contexta
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-
-  const { dates, options } = useContext(SearchContext);
 
   const readableStartDate = new Date(data.startDate);
   const readableEndDate = new Date(data.endDate);
@@ -49,6 +49,7 @@ const Offer = () => {
   let calendarIcon = (
     <FontAwesomeIcon icon={faCalendarDays} className="iconCal" />
   );
+  // u zavisnosti da li je ponuda istekla koristimo drugaciju ikonicu za kalendar
   if (data.startDate - currentDate.getTime() < 0) {
     active = false;
     calendarIcon = (
@@ -56,6 +57,7 @@ const Offer = () => {
     );
   }
 
+  // loading animacija
   const loader = (
     <DotLoader
       color={"#7251b5c4"}
@@ -69,13 +71,13 @@ const Offer = () => {
 
   console.log(user);
 
-  //const days = dayDifference(dates[0].endDate, dates[0].startDate)
-
+  // otvaranje modala za slike
   const handleOpen = (i) => {
     setSlideNumber(i);
     setOpen(true);
   };
 
+  // biramo koja slika ce da bude prikazana
   const handleMove = (direction) => {
     let newSlideNumber;
     if (direction === "l") {
@@ -88,6 +90,7 @@ const Offer = () => {
     setSlideNumber(newSlideNumber);
   };
 
+  // moram da budemo ulogovani da bi otvorili modal za rezervaciju
   const handleClick = () => {
     if (user) {
       {
@@ -98,6 +101,7 @@ const Offer = () => {
     }
   };
 
+  // razdvajanje gradova iz baze
   const citiesBuilder = () => {
     let cities = "";
     for (let i = 0; i < data.location.length; i++) {
@@ -111,6 +115,7 @@ const Offer = () => {
     return cities;
   };
 
+  // broj provedenih dana u ponudi
   const amountDays = () => {
     let days = 0;
     for (let i = 0; i < data.daysPerLocation.length; i++) {
@@ -120,6 +125,7 @@ const Offer = () => {
   };
 
   let transportIcon;
+  // ikonica za svaki tip transporta
   switch (data.transportType) {
     case "plane":
       transportIcon = <AirplanemodeActiveIcon className="transportIcon2" />;
@@ -225,8 +231,11 @@ const Offer = () => {
                   {data.descPerDay.map((desc, i) => {
                     return (
                       <div className="display" key={i}>
-                        <span>{i + 1}. DAY</span>
-                        <div>{desc}</div>
+                        <div className="div">
+                          <span>{i + 1}. DAY</span>
+                          <div>{desc}</div>
+                        </div>
+                        <hr />
                       </div>
                     );
                   })}

@@ -20,6 +20,7 @@ const SearchItem = ({ item }) => {
   let calendarIcon = (
     <FontAwesomeIcon icon={faCalendarDays} className="iconCal" />
   );
+  // ikonica u zavisnosti od datuma ponude
   if (item.startDate - currentDate.getTime() < 0) {
     active = false;
     calendarIcon = (
@@ -28,6 +29,7 @@ const SearchItem = ({ item }) => {
   }
 
   let transportIcon;
+  // ikonica u zavisnosti od tipa transporta
   switch (item.transportType) {
     case "plane":
       transportIcon = <AirplanemodeActiveIcon className="transportIcon" />;

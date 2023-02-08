@@ -45,9 +45,10 @@
         text-align: center;
 
         img {
+          padding: 2.5px;
           width: 100px;
           height: 100px;
-          border-radius: 50%;
+          border-radius: 10%;
           object-fit: cover;
         }
       }
@@ -107,6 +108,7 @@
             border-radius: 7px;
             font-size: 15px;
             letter-spacing: 3px;
+            text-transform: uppercase;
           }
 
           .sendButtonOffer:hover {

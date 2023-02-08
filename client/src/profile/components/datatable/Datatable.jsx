@@ -10,20 +10,19 @@ import PersonIcon from "@mui/icons-material/Person";
 import CreditCardIcon from "@mui/icons-material/CreditCard";
 import DotLoader from "react-spinners/DotLoader";
 
-import { SearchContext } from "../../../main/context/SearchContext";
-
 const Datatable = ({ columns }) => {
-  const { dates, options } = useContext(SearchContext);
-
+  // posto se datatable koristi za vise stranica, proveramo koja stranica je tacno
   const navigate = useNavigate();
   const location = useLocation();
   const path = location.pathname.split("/")[2];
 
   const savedUser = JSON.parse(localStorage.getItem("user"));
 
+  // podaci za prikazivanje
   const [list, setList] = useState([]);
   const [userData, setUserData] = useState("");
 
+  // zbog kasnjenja podataka koristimo fetch umesto useFetcha
   const handler = async () => {
     const response = await fetch(`/users/${savedUser["_id"]}`);
     const data = await response.json();
@@ -37,11 +36,13 @@ const Datatable = ({ columns }) => {
   }, []);
 
   let fetchPath = `/`;
+  // samo staff i admin vide sve korisnike
   if (userData.isStaff || userData.isAdmin) {
     fetchPath += `${path}`;
   } else {
     fetchPath += `${path}?userID=${userData._id}`;
   }
+  // samo admin vidi ponude
   if (path.split("/")[0] === "offers") {
     fetchPath = `/${path}?offerList=1`;
   }
@@ -53,6 +54,7 @@ const Datatable = ({ columns }) => {
     setList(data);
   }, [data]);
 
+  // (re)setuje aktivnost korisnika
   const handleSetActive = async (e) => {
     try {
       const id =
@@ -67,6 +69,7 @@ const Datatable = ({ columns }) => {
     } catch (err) {}
   };
 
+  // (re)setuje rol staffa
   const handleSetStaff = async (e) => {
     try {
       const id =
@@ -82,6 +85,7 @@ const Datatable = ({ columns }) => {
     } catch (err) {}
   };
 
+  // prihvatanje rezervacije
   const handleSetAccepted = async (e) => {
     const confirmation = window.confirm("Are you sure?");
     if (!confirmation) {
@@ -108,6 +112,7 @@ const Datatable = ({ columns }) => {
     } catch (err) {}
   };
 
+  // prelaz na editovanje ponude
   const handleEdit = async (e) => {
     const id =
       e.target.parentElement.parentElement.parentElement.parentElement
@@ -115,6 +120,7 @@ const Datatable = ({ columns }) => {
     navigate(`/profile/${path}/editoffer/${id}`);
   };
 
+  // dugmici u zavisnosti u kojoj tabeli treba da budu vidljivi i zavise od autoriteta
   const actionColumn = [
     {
       field: "action",
@@ -181,6 +187,7 @@ const Datatable = ({ columns }) => {
   let isPendingOffer = false;
   let listType = "";
   let icon;
+  // ikone u zavisnosti od tabele
   switch (path) {
     case "users":
       icon = <PersonIcon className="icon" />;
@@ -197,6 +204,7 @@ const Datatable = ({ columns }) => {
       break;
   }
 
+  // loading animacija
   const loader = (
     <DotLoader
       color={"#7251b5c4"}

@@ -4,11 +4,11 @@ import CreditCardIcon from "@mui/icons-material/CreditCard";
 import StoreIcon from "@mui/icons-material/Store";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
 import useFetch from "../../../main/hooks/useFetch";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const Sidebar = () => {
+  // uzimamo id iz lokalnog skladista da bi smo znali rol usera
   const location = window.location;
   const savedUser = JSON.parse(localStorage.getItem("user"));
   const { data, loading, error } = useFetch(`/users/${savedUser["_id"]}`);
@@ -17,11 +17,6 @@ const Sidebar = () => {
     localStorage.removeItem("user");
     location.reload();
   };
-
-  /*  window.onbeforeunload = function () {
-    localStorage.removeItem("user");
-    return "";
-  }; */
 
   return (
     <div className="sidebar">

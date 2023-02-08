@@ -6,6 +6,7 @@ const PropertyList = () => {
   const { data, loading, error, reFetch } = useFetch("/offers/countByCountry");
   const navigate = useNavigate();
 
+  // pokrecemo predefinisanu pretragu po drzavi
   const handleOnClickSearch = (country) => {
     const search1 = "";
     const search2 = country;
