@@ -14,6 +14,29 @@
   position: relative;
 }
 
+.ratingStars {
+  color: #7251b5;
+}
+
+.continents > span {
+  font-weight: bold;
+}
+
+.addon {
+  border: 2px solid #7251b5;
+  margin-right: 5px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.yes {
+  color: green;
+}
+
+.no {
+  color: red;
+}
+
 .hotelTitle {
   font-size: 26px;
   height: 40px;
@@ -84,6 +107,7 @@
   width: 100%;
   height: 200px;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .hotelDetails {
@@ -264,4 +288,28 @@
   background-color: #dec9e9;
   height: 1px;
   border: none;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #7251b5;
+  color: #dec9e9;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
 }
