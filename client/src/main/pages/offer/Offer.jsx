@@ -18,6 +18,12 @@ import DirectionsBusIcon from "@mui/icons-material/DirectionsBus";
 import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import CloseIcon from "@mui/icons-material/Close";
+import StarIcon from "@mui/icons-material/Star";
+import StarBorderIcon from "@mui/icons-material/StarBorder";
+import WifiIcon from "@mui/icons-material/Wifi";
+import AcUnitIcon from "@mui/icons-material/AcUnit";
+import TvIcon from "@mui/icons-material/Tv";
+import KitchenIcon from "@mui/icons-material/Kitchen";
 import {
   faCalendarDays,
   faCalendarXmark,
@@ -107,9 +113,20 @@ const Offer = () => {
     for (let i = 0; i < data.location.length; i++) {
       // odvajanje lokacija
       if (i === data.location.length - 1) {
-        cities = cities + data.location[i];
+        cities = cities + data.location[i] + " (" + data.daysPerLocation[i];
+        if (data.daysPerLocation[i] == 1) {
+          cities = cities + " day)";
+        } else {
+          cities = cities + " days)";
+        }
       } else {
-        cities = cities + data.location[i] + ", ";
+        cities = cities + data.location[i] + " (" + data.daysPerLocation[i];
+        if (data.daysPerLocation[i] == 1) {
+          cities = cities + " day)";
+        } else {
+          cities = cities + " days)";
+        }
+        cities = cities + ", ";
       }
     }
     return cities;
@@ -123,6 +140,29 @@ const Offer = () => {
     }
     return days;
   };
+
+  let roomType;
+
+  switch (data.roomType) {
+    case "1/1":
+      roomType = "Room with one bed";
+      break;
+    case "1/2":
+      roomType = "Room with two beds";
+      break;
+    case "1/3":
+      roomType = "Room with three beds";
+      break;
+    case "1/3 + 1":
+      roomType = "Room with three beds and a bunk";
+      break;
+    case "1/4":
+      roomType = "Room with four beds";
+      break;
+    case "1/2 + 1":
+      roomType = "Room with two beds and a bunk";
+      break;
+  }
 
   let transportIcon;
   // ikonica za svaki tip transporta
@@ -141,6 +181,66 @@ const Offer = () => {
       break;
     case "bus":
       transportIcon = <DirectionsBusIcon className="transportIcon2" />;
+      break;
+  }
+
+  let rating;
+
+  switch (data.accommodationType) {
+    case 1:
+      rating = (
+        <>
+          <StarIcon />
+          <StarBorderIcon />
+          <StarBorderIcon />
+          <StarBorderIcon />
+          <StarBorderIcon />
+        </>
+      );
+      break;
+    case 2:
+      rating = (
+        <>
+          <StarIcon />
+          <StarIcon />
+          <StarBorderIcon />
+          <StarBorderIcon />
+          <StarBorderIcon />
+        </>
+      );
+      break;
+    case 3:
+      rating = (
+        <>
+          <StarIcon />
+          <StarIcon />
+          <StarIcon />
+          <StarBorderIcon />
+          <StarBorderIcon />
+        </>
+      );
+      break;
+    case 4:
+      rating = (
+        <>
+          <StarIcon />
+          <StarIcon />
+          <StarIcon />
+          <StarIcon />
+          <StarBorderIcon />
+        </>
+      );
+      break;
+    case 5:
+      rating = (
+        <>
+          <StarIcon />
+          <StarIcon />
+          <StarIcon />
+          <StarIcon />
+          <StarIcon />
+        </>
+      );
       break;
   }
 
@@ -175,6 +275,10 @@ const Offer = () => {
           )}
           <div className="hotelWrapper">
             <h1 className="hotelTitle">{data.name}</h1>
+            <div className="ratingStars">{rating}</div>
+            <div className="continents">
+              <span>{data.continent}</span>, {data.country}
+            </div>
             <div className="hotelAddress">
               <FontAwesomeIcon icon={faLocationDot} />
               <span>
@@ -202,10 +306,38 @@ const Offer = () => {
               <span>Description: </span>
               <span>{data.description}</span>
             </span>
-            <span className="hotelPriceHighlight">
-              Book a stay over <span>€{data.price}</span> at this property and
-              get a free airport taxi
-            </span>
+            <div className="addons">
+              <div className="tooltip">
+                <WifiIcon
+                  className={data.internet ? "addon yes" : "addon no"}
+                />
+                <span class="tooltiptext">
+                  Wi-fi {data.internet ? "available" : "unavailable"}
+                </span>
+              </div>
+              <div className="tooltip">
+                <AcUnitIcon
+                  className={data.airConditioning ? "addon yes" : "addon no"}
+                />
+                <span class="tooltiptext">
+                  AC {data.airConditioning ? "available" : "unavailable"}
+                </span>
+              </div>
+              <div className="tooltip">
+                <TvIcon className={data.tv ? "addon yes" : "addon no"} />
+                <span class="tooltiptext">
+                  TV {data.tv ? "available" : "unavailable"}
+                </span>
+              </div>
+              <div className="tooltip">
+                <KitchenIcon
+                  className={data.roomFridge ? "addon yes" : "addon no"}
+                />
+                <span class="tooltiptext">
+                  Fridge {data.roomFridge ? "available" : "unavailable"}
+                </span>
+              </div>
+            </div>
             <div className="hotelImages">
               {data.imgPerLocation?.map(
                 (img, i) => (
@@ -249,13 +381,19 @@ const Offer = () => {
               </div>
               <div className="hotelDetailsPrice">
                 <h1>
-                  Perfect price for a{" "}
-                  {data.daysPerLocation === undefined ? "" : amountDays()}-day
-                  offer
+                  This {data.daysPerLocation === undefined ? "" : amountDays()}
+                  -day offer has
                 </h1>
-                <span>{data.description}</span>
+                <span>
+                  {roomType} in a {data.accommodationType}-star{" "}
+                  <span
+                    style={{ fontWeight: "bold", textTransform: "capitalize" }}
+                  >
+                    {data.accommodation}!
+                  </span>
+                </span>
                 <h2>
-                  <b>€{data.price}</b>
+                  <b style={{ color: "green" }}>€{data.price}</b>
                 </h2>
                 <button
                   disabled={new Date().getTime() > data.startDate}

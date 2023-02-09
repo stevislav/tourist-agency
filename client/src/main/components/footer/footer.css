@@ -35,3 +35,8 @@ li {
 li > span {
   font-weight: bold;
 }
+
+.neutral {
+  text-decoration: none;
+  color: #7251b5;
+}

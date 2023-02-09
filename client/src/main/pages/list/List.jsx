@@ -6,6 +6,7 @@ import { useState } from "react";
 import SearchItem from "../../components/searchItem/SearchItem";
 import useFetch from "../../hooks/useFetch";
 import DotLoader from "react-spinners/DotLoader";
+import Footer from "../../components/footer/Footer";
 
 const List = () => {
   const location = useLocation();
@@ -148,6 +149,7 @@ const List = () => {
           </div>
         )}
       </div>
+      <Footer />
     </div>
   );
 };
