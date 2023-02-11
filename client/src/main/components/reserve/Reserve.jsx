@@ -83,8 +83,8 @@ const Reserve = ({ setOpen, offerId }) => {
             />
             <label>Payment method</label>
             <select onChange={(e) => setPaymentType(e.target.value)}>
-              <option value={"cash"}>cash</option>
-              <option value={"card"}>card</option>
+              <option value={"cash"}>CASH</option>
+              <option value={"card"}>CARD</option>
             </select>
             <label>Number of adults</label>
             <input
