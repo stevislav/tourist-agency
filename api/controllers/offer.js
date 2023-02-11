@@ -91,9 +91,12 @@ export const getOffers = async (req, res, next) => {
   //queryObject["startDate"]={ "$gte": new Date(startDate)}
   //queryObject["endDate"]={"$lt" : new Date(endDate)}
 
+  let startDateMS
+  let startDateMS2
+
   if (startDate === endDate) {
-    const startDateMS = new Date(startDate);
-    const startDateMS2 = new Date();
+    startDateMS = new Date(startDate);
+    startDateMS2 = new Date();
     queryObject.startDate = { $gt: startDateMS.getTime() };
     queryObject2.startDate = { $gt: startDateMS2.getTime() };
 
@@ -101,9 +104,9 @@ export const getOffers = async (req, res, next) => {
     //     "$gte": startDateMS.getTime()
     // }
   } else {
-    const startDateMS = new Date(startDate);
+    startDateMS = new Date(startDate);
     const endDateMS = new Date(endDate);
-    const startDateMS2 = new Date();
+    startDateMS2 = new Date();
     const endDateMS2 = new Date(endDate);
 
     queryObject.startDate = { $gt: startDateMS.getTime() };
@@ -120,6 +123,22 @@ export const getOffers = async (req, res, next) => {
 
   //console.log(queryObject);
 
+  if(startDateMS2.getTime()<startDateMS.getTime()){
+    try{
+
+      let offers2 = await Offer.find(queryObject)
+      .sort({ startDate: 1 })
+      .skip(pageNum * pageLimit)
+      .limit(queryLimit);
+
+      res.status(200).json(offers2);
+      return;
+    }catch(err){
+      next(err)
+    }
+  }else{
+
+  }
   try {
     const offersLength = await Offer.countDocuments(queryObject)
     const offersLength2 = await Offer.countDocuments(queryObject2)
