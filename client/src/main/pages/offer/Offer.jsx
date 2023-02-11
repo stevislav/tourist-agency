@@ -248,166 +248,173 @@ const Offer = () => {
     <div>
       <Navbar />
       <Header openReserve={openModal} />
-      {loading ? (
-        loader
-      ) : (
-        <div className="hotelContainer">
-          {open && (
-            <div className="slider">
-              <CloseIcon className="close" onClick={() => setOpen(false)} />
-              <NavigateBeforeIcon
-                className="arrow"
-                onClick={() => handleMove("l")}
-              />
+      <div className="hotelContainer">
+        {loading ? (
+          loader
+        ) : (
+          <>
+            {open && (
+              <div className="slider">
+                <CloseIcon className="close" onClick={() => setOpen(false)} />
+                <NavigateBeforeIcon
+                  className="arrow"
+                  onClick={() => handleMove("l")}
+                />
 
-              <div className="sliderWrapper">
-                <img
-                  src={data.imgPerLocation[slideNumber]}
-                  alt=""
-                  className="sliderImg"
-                />
-              </div>
-              <NavigateNextIcon
-                className="arrow"
-                onClick={() => handleMove("r")}
-              />
-            </div>
-          )}
-          <div className="hotelWrapper">
-            <h1 className="hotelTitle">{data.name}</h1>
-            <div className="ratingStars">{rating}</div>
-            <div className="continents">
-              <span>{data.continent}</span>, {data.country}
-            </div>
-            <div className="hotelAddress">
-              <FontAwesomeIcon icon={faLocationDot} />
-              <span>
-                Locations:{" "}
-                <span>
-                  {data.location === undefined ? "" : citiesBuilder()}
-                </span>
-              </span>
-            </div>
-            <div className="rangeDate">
-              {calendarIcon} <span className="dateColor">Date: </span>
-              <span className={active ? "siTaxiOp2" : "work2"}>
-                {readableStartDate.toDateString()} -{" "}
-                {readableEndDate.toDateString()}
-              </span>
-            </div>
-            <div className="hotelTT">
-              {transportIcon}
-              <span>
-                Arrive by <span className="offerTT">{data.transportType}</span>
-              </span>
-            </div>
-            <span className="hotelDistance">
-              <FontAwesomeIcon icon={faScroll} className="reserveDesc" />
-              <span>Description: </span>
-              <span>{data.description}</span>
-            </span>
-            <div className="addons">
-              <div className="tooltip">
-                <WifiIcon
-                  className={data.internet ? "addon yes" : "addon no"}
-                />
-                <span class="tooltiptext">
-                  Wi-fi {data.internet ? "available" : "unavailable"}
-                </span>
-              </div>
-              <div className="tooltip">
-                <AcUnitIcon
-                  className={data.airConditioning ? "addon yes" : "addon no"}
-                />
-                <span class="tooltiptext">
-                  AC {data.airConditioning ? "available" : "unavailable"}
-                </span>
-              </div>
-              <div className="tooltip">
-                <TvIcon className={data.tv ? "addon yes" : "addon no"} />
-                <span class="tooltiptext">
-                  TV {data.tv ? "available" : "unavailable"}
-                </span>
-              </div>
-              <div className="tooltip">
-                <KitchenIcon
-                  className={data.roomFridge ? "addon yes" : "addon no"}
-                />
-                <span class="tooltiptext">
-                  Fridge {data.roomFridge ? "available" : "unavailable"}
-                </span>
-              </div>
-            </div>
-            <div className="hotelImages">
-              {data.imgPerLocation?.map(
-                (img, i) => (
-                  console.log(img),
-                  (
-                    <div className="hotelImgWrapper">
-                      <img
-                        onClick={() => handleOpen(i)}
-                        src={img}
-                        alt=""
-                        className="hotelImg"
-                      />
-                    </div>
-                  )
-                )
-              )}
-            </div>
-            {data.descPerDay === undefined ? (
-              ""
-            ) : (
-              <>
-                <div>
-                  {data.descPerDay.map((desc, i) => {
-                    return (
-                      <div className="display" key={i}>
-                        <div className="div">
-                          <span>{i + 1}. DAY</span>
-                          <div>{desc}</div>
-                        </div>
-                        <hr />
-                      </div>
-                    );
-                  })}
+                <div className="sliderWrapper">
+                  <img
+                    src={data.imgPerLocation[slideNumber]}
+                    alt=""
+                    className="sliderImg"
+                  />
                 </div>
-              </>
-            )}
-            <div className="hotelDetails">
-              <div className="hotelDetailsTexts">
-                <h1 className="hotelTitle">{data.title}</h1>
-                <p className="hotelDesc">{data.desc}</p>
+                <NavigateNextIcon
+                  className="arrow"
+                  onClick={() => handleMove("r")}
+                />
               </div>
-              <div className="hotelDetailsPrice">
-                <h1>
-                  This {data.daysPerLocation === undefined ? "" : amountDays()}
-                  -day offer has
-                </h1>
+            )}
+            <div className="hotelWrapper">
+              <h1 className="hotelTitle">{data.name}</h1>
+              <div className="ratingStars">{rating}</div>
+              <div className="continents">
+                <span>{data.continent}</span>, {data.country}
+              </div>
+              <div className="hotelAddress">
+                <FontAwesomeIcon icon={faLocationDot} />
                 <span>
-                  {roomType} in a {data.accommodationType}-star{" "}
-                  <span
-                    style={{ fontWeight: "bold", textTransform: "capitalize" }}
-                  >
-                    {data.accommodation}!
+                  Locations:{" "}
+                  <span>
+                    {data.location === undefined ? "" : citiesBuilder()}
                   </span>
                 </span>
-                <h2>
-                  <b style={{ color: "green" }}>€{data.price}</b>
-                </h2>
-                <button
-                  disabled={new Date().getTime() > data.startDate}
-                  onClick={handleClick}
-                >
-                  {new Date().getTime() > data.startDate
-                    ? "Unavailable"
-                    : "Reserve or Book Now!"}
-                </button>
+              </div>
+              <div className="rangeDate">
+                {calendarIcon} <span className="dateColor">Date: </span>
+                <span className={active ? "siTaxiOp2" : "work2"}>
+                  {readableStartDate.toDateString()} -{" "}
+                  {readableEndDate.toDateString()}
+                </span>
+              </div>
+              <div className="hotelTT">
+                {transportIcon}
+                <span>
+                  Arrive by{" "}
+                  <span className="offerTT">{data.transportType}</span>
+                </span>
+              </div>
+              <span className="hotelDistance">
+                <FontAwesomeIcon icon={faScroll} className="reserveDesc" />
+                <span>Description: </span>
+                <span>{data.description}</span>
+              </span>
+              <div className="addons">
+                <div className="tooltip">
+                  <WifiIcon
+                    className={data.internet ? "addon yes" : "addon no"}
+                  />
+                  <span class="tooltiptext">
+                    Wi-fi {data.internet ? "available" : "unavailable"}
+                  </span>
+                </div>
+                <div className="tooltip">
+                  <AcUnitIcon
+                    className={data.airConditioning ? "addon yes" : "addon no"}
+                  />
+                  <span class="tooltiptext">
+                    AC {data.airConditioning ? "available" : "unavailable"}
+                  </span>
+                </div>
+                <div className="tooltip">
+                  <TvIcon className={data.tv ? "addon yes" : "addon no"} />
+                  <span class="tooltiptext">
+                    TV {data.tv ? "available" : "unavailable"}
+                  </span>
+                </div>
+                <div className="tooltip">
+                  <KitchenIcon
+                    className={data.roomFridge ? "addon yes" : "addon no"}
+                  />
+                  <span class="tooltiptext">
+                    Fridge {data.roomFridge ? "available" : "unavailable"}
+                  </span>
+                </div>
+              </div>
+              <div className="hotelImages">
+                {data.imgPerLocation?.map(
+                  (img, i) => (
+                    console.log(img),
+                    (
+                      <div className="hotelImgWrapper">
+                        <img
+                          onClick={() => handleOpen(i)}
+                          src={img}
+                          alt=""
+                          className="hotelImg"
+                        />
+                      </div>
+                    )
+                  )
+                )}
+              </div>
+              {data.descPerDay === undefined ? (
+                ""
+              ) : (
+                <>
+                  <div>
+                    {data.descPerDay.map((desc, i) => {
+                      return (
+                        <div className="display" key={i}>
+                          <div className="div">
+                            <span>{i + 1}. DAY</span>
+                            <div>{desc}</div>
+                          </div>
+                          <hr />
+                        </div>
+                      );
+                    })}
+                  </div>
+                </>
+              )}
+              <div className="hotelDetails">
+                <div className="hotelDetailsTexts">
+                  <h1 className="hotelTitle">{data.title}</h1>
+                  <p className="hotelDesc">{data.desc}</p>
+                </div>
+                <div className="hotelDetailsPrice">
+                  <h1>
+                    This{" "}
+                    {data.daysPerLocation === undefined ? "" : amountDays()}
+                    -day offer has
+                  </h1>
+                  <span>
+                    {roomType} in a {data.accommodationType}-star{" "}
+                    <span
+                      style={{
+                        fontWeight: "bold",
+                        textTransform: "capitalize",
+                      }}
+                    >
+                      {data.accommodation}!
+                    </span>
+                  </span>
+                  <h2>
+                    <b style={{ color: "green" }}>€{data.price}</b>
+                  </h2>
+                  <button
+                    disabled={new Date().getTime() > data.startDate}
+                    onClick={handleClick}
+                  >
+                    {new Date().getTime() > data.startDate
+                      ? "Unavailable"
+                      : "Reserve or Book Now!"}
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      )}
+          </>
+        )}
+      </div>
       <Footer />
       {openModal && <Reserve setOpen={setOpenModal} offerId={id} />}
     </div>
