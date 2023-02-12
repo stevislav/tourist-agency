@@ -1,0 +1,65 @@
+[{
+  "_id": {
+    "$oid": "63d7ed75e3610f688965b607"
+  },
+  "offerID": "63d695a300f7fc8982d8db78",
+  "userID": "63cc329b46c5703f07e1b20a",
+  "paymentType": "cash",
+  "numOfAdults": "1",
+  "numOfChildren": "0",
+  "comment": "test",
+  "fName": "test",
+  "lName": "test",
+  "phoneNumber": "123456",
+  "email": "test3@gmail.com",
+  "isAccepted": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63d7f239e3610f688965b66f"
+  },
+  "offerID": "63d6961d00f7fc8982d95bc6",
+  "userID": "63cd45ecef0ef02553717a86",
+  "paymentType": "cash",
+  "numOfAdults": "1",
+  "numOfChildren": "0",
+  "comment": "user1",
+  "fName": "User1",
+  "lName": "testing",
+  "phoneNumber": "123456",
+  "email": "user1@gmail.com",
+  "isAccepted": true,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63daa318b013cd4ee2c4ef99"
+  },
+  "offerID": "63d6960200f7fc8982d93f8f",
+  "userID": "63cc329b46c5703f07e1b20a",
+  "paymentType": "cash",
+  "numOfAdults": "1",
+  "numOfChildren": "0",
+  "comment": "Komentar",
+  "fName": "Korisnik2",
+  "lName": "Korisnik",
+  "phoneNumber": "123456",
+  "email": "test3@gmail.com",
+  "isAccepted": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63e5347099aac2c4e0860d3b"
+  },
+  "offerID": "63d695e900f7fc8982d92458",
+  "userID": "63e5342499aac2c4e0860cf1",
+  "paymentType": "cash",
+  "numOfAdults": "1",
+  "numOfChildren": "0",
+  "comment": "Komentar drugi",
+  "fName": "User3",
+  "lName": "Pyderman",
+  "phoneNumber": "0612345678",
+  "email": "korisnik@gmail.com",
+  "isAccepted": false,
+  "__v": 0
+}]
