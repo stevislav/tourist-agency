@@ -1,0 +1,66 @@
+version: "3.8"
+services:   
+  api:    
+    build: ./api
+    container_name: api   
+    volumes:      
+      - ./api/:/app      
+      - /app/node_modules    
+    ports:      
+      - "8800:8800"    
+    depends_on:      
+      - mongodb
+    env_file: ./api/.env
+    environment:
+      MONGO: mongodb://mongodb/test
+    networks:      
+      - mern-network  
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb 
+    restart: always
+    env_file:
+      - ./api/.env     
+    volumes:
+      - mongodb_data:/data/db
+    ports:
+      - "27017:27017" 
+    networks:      
+      - mern-network 
+
+  mongo_seed:
+    env_file:
+      - ./api/.env
+    build: 
+      context: ./mongo_seed
+      dockerfile: Dockerfile
+    links:
+      - mongodb
+    depends_on:      
+      - api 
+      - mongodb
+    networks:      
+      - mern-network  
+      
+  client:    
+    build: ./client
+    container_name: client_c    
+    depends_on:      
+      - api    
+    ports:
+      - "3000:3000"
+    environment:
+      - CHOKIDAR_USERPOLLING=true
+    stdin_open: true
+    tty: true    
+    networks:      
+      - mern-network
+networks:    
+    mern-network:        
+      driver: bridge
+volumes:    
+    mongodb_data: {}
+    node_modules:  
+    web-root:      
+      driver: local
