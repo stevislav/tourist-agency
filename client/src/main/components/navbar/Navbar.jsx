@@ -39,19 +39,19 @@ const Navbar = () => {
         </Link>
         {user !== null ? (
           <div>
-            <button className="navButton" onClick={handleProfile}>
+            <button id="btnUser" className="navButton" onClick={handleProfile}>
               {user.username}
             </button>
-            <button className="navButton" onClick={handleLogout}>
+            <button id="btnLogout" className="navButton" onClick={handleLogout}>
               Logout
             </button>
           </div>
         ) : (
-          <div className="navItems">
+          <div id="btnReg" className="navItems">
             <button className="navButton" onClick={handleRegister}>
               Register
             </button>
-            <button className="navButton" onClick={handleLogin}>
+            <button id="btnLogin" className="navButton" onClick={handleLogin}>
               Log in
             </button>
           </div>
