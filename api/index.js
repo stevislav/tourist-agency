@@ -12,7 +12,9 @@ dotenv.config()
 
 const connect = async () => {
     try {
-        /* mozda bez await? */await mongoose.connect(process.env.MONGO);
+        
+        mongoose.set('strictQuery', false);
+        await mongoose.connect(process.env.MONGO , { useNewUrlParser: true });
         console.log("main connection to database successful")
     } catch (error) {
         throw error;
