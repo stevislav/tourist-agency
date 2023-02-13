@@ -402,6 +402,7 @@ const Header = ({
             <span
               onClick={() => setOpenDate(!openDate)}
               className="headerSearchText"
+              id="4"
             >{`${format(dates[0].startDate, "dd/MM/yyyy")} to ${format(
               dates[0].endDate,
               "dd/MM/yyyy"
@@ -421,7 +422,7 @@ const Header = ({
           </div>
 
           <div className="headerSearchItem">
-            <button className="headerBtn" onClick={handleSearch}>
+            <button id="search" className="headerBtn" onClick={handleSearch}>
               Search
             </button>
           </div>

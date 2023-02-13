@@ -73,10 +73,10 @@ const SearchItem = ({ item }) => {
       </Link>
       <div className="siDesc">
         <Link to={`/offers/${item._id}`} style={{ textDecoration: "none" }}>
-          <h1 className="siTitle">{item.name}</h1>
+          <h1 id="name" className="siTitle">{item.name}</h1>
         </Link>
-        <span className="siDistance">{cities}</span>
-        <span className={active ? "siTaxiOp" : "work"}>
+        <span id="city" className="siDistance">{cities}</span>
+        <span id="date" className={active ? "siTaxiOp" : "work"}>
           {calendarIcon} {readableStartDate.toDateString()} -{" "}
           {readableEndDate.toDateString()}
         </span>
@@ -84,7 +84,7 @@ const SearchItem = ({ item }) => {
           Transport type:
           <span>
             {transportIcon}
-            <span className="itemTransport">{item.transportType}</span>
+            <span id="transport" className="itemTransport">{item.transportType}</span>
           </span>
         </span>
         <span className="itemDesc">
@@ -100,7 +100,7 @@ const SearchItem = ({ item }) => {
           <span className="siTaxOp">Includes taxes and fees</span>
           <span className="siCancelOp">Free cancellation</span>
           <Link to={`/offers/${item._id}`}>
-            <button className="siCheckButton">See availability</button>
+            <button id="see" className="siCheckButton">See availability</button>
           </Link>
         </div>
       </div>
