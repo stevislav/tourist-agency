@@ -1,5 +1,5 @@
 {
-  "proxy": "http://api:8800/api",
+  "proxy": "http://api:8800/api", 
   "name": "instabook",
   "version": "0.1.0",
   "private": true,
