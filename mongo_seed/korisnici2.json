@@ -1,0 +1,241 @@
+[{
+  "_id": {
+    "$oid": "63cc1c4993d25537944871f9"
+  },
+  "username": "dragan",
+  "email": "dragan@gmail.com",
+  "password": "$2a$10$xX/0frqWRRIdepWtHAcF..ipn9tcGl9GzbEJhMmVsCGiP2bgvSLU6",
+  "fName": "dragan",
+  "lName": "mikid",
+  "phoneNumber": "123456",
+  "isStaff": true,
+  "isAdmin": true,
+  "isActive": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1674320969436"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1675096273683"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63cd45d9ef0ef02553717a85"
+  },
+  "username": "staff2",
+  "email": "staff2@gmail.com",
+  "password": "$2a$10$BcP4Ki43R0PlCz7z1vlnt.cSg8v4yHfDKiTlK4TRLW8wqNxfX1zPW",
+  "fName": "staff",
+  "lName": "staff",
+  "phoneNumber": "123456",
+  "isStaff": true,
+  "isAdmin": false,
+  "isActive": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1674326683258"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1674655998781"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63cd45ecef0ef02553717a86"
+  },
+  "username": "user1",
+  "email": "user1@gmail.com",
+  "password": "$2a$10$BcP4Ki43R0PlCz7z1vlnt.cSg8v4yHfDKiTlK4TRLW8wqNxfX1zPW",
+  "fName": "Korisnik",
+  "lName": "testing",
+  "phoneNumber": "123456",
+  "isStaff": false,
+  "isAdmin": false,
+  "isActive": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1674326683258"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1674659952123"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63cc329b46c5703f07e1b20a"
+  },
+  "username": "test2",
+  "email": "test3@gmail.com",
+  "password": "$2a$10$BcP4Ki43R0PlCz7z1vlnt.cSg8v4yHfDKiTlK4TRLW8wqNxfX1zPW",
+  "fName": "admin",
+  "lName": "admin",
+  "phoneNumber": "123456",
+  "isStaff": true,
+  "isAdmin": true,
+  "isActive": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1674326683258"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1674908243461"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63cd45ffef0ef02553717a87"
+  },
+  "username": "user2",
+  "email": "user2@gmail.com",
+  "password": "$2a$10$BcP4Ki43R0PlCz7z1vlnt.cSg8v4yHfDKiTlK4TRLW8wqNxfX1zPW",
+  "fName": "user",
+  "lName": "user",
+  "phoneNumber": "123456",
+  "isStaff": false,
+  "isAdmin": false,
+  "isActive": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1674326683258"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1674574803820"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63cee533f75b8b6cdd1d278e"
+  },
+  "username": "pst",
+  "email": "hssh@gmail.com",
+  "password": "$2a$10$huJNecXT4E6qfN/L8lnd9.qIjtYc0E2AYIYpGfugou31WTlWBoIcO",
+  "fName": "rthsfdg",
+  "lName": "sdsh",
+  "phoneNumber": "345",
+  "isStaff": false,
+  "isAdmin": false,
+  "isActive": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1674503475983"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1674573301820"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63cc20982d50150d7901bfbb"
+  },
+  "username": "test",
+  "email": "test@gmail.com",
+  "password": "$2a$10$xX/0frqWRRIdepWtHAcF..ipn9tcGl9GzbEJhMmVsCGiP2bgvSLU6",
+  "fName": "test",
+  "lName": "test",
+  "phoneNumber": "123456",
+  "isStaff": true,
+  "isAdmin": true,
+  "isActive": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1674320969436"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1674577826021"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63cd45b8ef0ef02553717a84"
+  },
+  "username": "staff1",
+  "email": "staff1@gmail.com",
+  "password": "$2a$10$BcP4Ki43R0PlCz7z1vlnt.cSg8v4yHfDKiTlK4TRLW8wqNxfX1zPW",
+  "fName": "staff",
+  "lName": "staff",
+  "phoneNumber": "123456",
+  "isStaff": true,
+  "isAdmin": false,
+  "isActive": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1674326683258"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1674578919188"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63eaaf1137227a1e39459dd4"
+  },
+  "username": "milan2",
+  "email": "nedaarsic00@gmail.com",
+  "password": "$2a$10$BWY0WQGfunyGcMnfaAUPzurZmbLAPKZE1LWNXLVOWiR2YYR7r8ySW",
+  "fName": "Neda",
+  "lName": "Arsic",
+  "phoneNumber": "0639444446",
+  "isStaff": false,
+  "isAdmin": false,
+  "isActive": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1676324625608"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1676325889520"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63eab39937227a1e39459de9"
+  },
+  "username": "elena",
+  "email": "elena@gmail.com",
+  "password": "$2a$10$1xDJ1ZcIvKc4wjYhaGmWJO/q51CA/vYSOCzbvIwgOy5H4hqNxXW7y",
+  "fName": "Elena",
+  "lName": "Mikic",
+  "phoneNumber": "0639445646",
+  "isStaff": false,
+  "isAdmin": false,
+  "isActive": true,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1676325785783"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1676325886552"
+    }
+  },
+  "__v": 0
+}]
