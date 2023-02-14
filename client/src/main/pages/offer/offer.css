@@ -16,6 +16,8 @@
 
 .ratingStars {
   color: #7251b5;
+  display: flex;
+  align-items: center;
 }
 
 .continents > span {
@@ -37,11 +39,22 @@
   color: red;
 }
 
+.hotelTT {
+  display: flex;
+  align-items: center;
+}
+
 .hotelTitle {
   font-size: 26px;
   height: 40px;
   padding-top: 15px;
   color: #6247aa;
+}
+
+.addons {
+  display: flex;
+  text-align: center;
+  align-items: center;
 }
 
 .hotelAddress {
@@ -297,7 +310,7 @@
 
 .tooltip .tooltiptext {
   visibility: hidden;
-  width: 120px;
+  width: 125px;
   background-color: #7251b5;
   color: #dec9e9;
   text-align: center;
@@ -313,4 +326,21 @@
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+
+.accommodationTpe {
+  color: #7251b5;
+  font-size: 14px;
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+
+.accommodationTpe > span {
+  color: black;
+  text-transform: capitalize;
+}
+
+.homeIcon {
+  font-size: 10px;
 }

@@ -12,6 +12,7 @@ const Footer = () => {
               <a
                 className="neutral"
                 href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF3g7kL4e-lpAW0IwNSbOuF9Fv8ptoSRFeCg&usqp=CAU"
+                target="_blank"
               >
                 i
               </a>
@@ -25,6 +26,7 @@ const Footer = () => {
               <a
                 className="neutral"
                 href="https://discworld.com/management/wp-content/uploads/2017/07/Great-ATuin.png"
+                target="_blank"
               >
                 I
               </a>
@@ -38,6 +40,7 @@ const Footer = () => {
               <a
                 className="neutral"
                 href="https://cdn.discordapp.com/attachments/1064873539632640033/1070405989968388146/bulba.jpg"
+                target="_blank"
               >
                 a
               </a>{" "}
@@ -47,11 +50,12 @@ const Footer = () => {
           <li>
             <a
               className="neutral"
-              href="https://i.kym-cdn.com/photos/images/facebook/001/998/134/a99.jpg"
+              href="https://i.imgflip.com/443119.png?a465504"
+              target="_blank"
             >
-              QA
+              Q
             </a>
-            : <span>Stevan Popovic 631/2019</span>
+            A: <span>Stevan Popovic 631/2019</span>
           </li>
         </ul>
       </div>
