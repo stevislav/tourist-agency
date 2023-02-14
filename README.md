@@ -45,6 +45,9 @@ A MongoDB radi na http://localhost:27017
 Možete pokrenuti kontejnere svaki pojedinačno radi sigurnosti redosleda pokretanja, i to na sledeći način:
 
       docker-compose up -d mongodb
+      
       docker-compose up -d mongo_seed
+      
       docker-compose up -d api
+      
       docker-compose up -d client
