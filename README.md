@@ -52,4 +52,11 @@ A MongoDB radi na http://localhost:27017
       
       docker-compose up -d client
       
+**Na početnoj stranici se, pored pojedinog sadržaja koji je izdvojen, daje mogućnost pretrage unošenjem parametara:**
+      
+* lokacije
+* kontinenta ili grada 
+* načinu prevoza
+* datumu odlaska I povratka
+      
 ![image](https://user-images.githubusercontent.com/85966007/218750174-e07feab5-2418-4f30-ba4a-b2a19dacfe96.png)
