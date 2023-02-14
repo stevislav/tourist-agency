@@ -282,7 +282,7 @@ const Offer = () => {
             <div className="hotelWrapper">
               <h1 className="hotelTitle">{data.name}</h1>
               <div className="ratingStars">{rating}</div>
-              <div className="continents">
+              <div id="country" className="continents">
                 <span>{data.continent}</span>, {data.country}
               </div>
               <div className="hotelAddress">

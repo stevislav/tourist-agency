@@ -269,3 +269,63 @@
   color: #7251b5;
   margin-right: 5px;
 }
+
+@media screen and (max-width: 1746px) {
+  .nameModal {
+    left: 390px;
+  }
+  .ccModal {
+    left: 615px;
+  }
+  .transportModal {
+    left: 845px;
+  }
+}
+
+@media screen and (max-width: 1536px) {
+  .nameModal {
+    left: 285px;
+  }
+  .ccModal {
+    left: 515px;
+  }
+  .transportModal {
+    left: 740px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .nameModal {
+    left: 160px;
+  }
+  .ccModal {
+    left: 390px;
+  }
+  .transportModal {
+    left: 610px;
+  }
+}
+
+@media screen and (min-width: 2133px) {
+  .nameModal {
+    left: 585px;
+  }
+  .ccModal {
+    left: 810px;
+  }
+  .transportModal {
+    left: 1030px;
+  }
+}
+
+@media screen and (min-width: 2400px) {
+  .nameModal {
+    left: 710px;
+  }
+  .ccModal {
+    left: 940px;
+  }
+  .transportModal {
+    left: 1170px;
+  }
+}
