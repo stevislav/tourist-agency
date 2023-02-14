@@ -122,6 +122,123 @@
   right: 800px;
 }
 
+@media screen and (max-width: 1100px) {
+  .nameModal {
+    left: 70px !important;
+  }
+  .ccModal {
+    left: 300px !important;
+  }
+  .transportModal {
+    left: 520px !important;
+  }
+  .date {
+    right: 70px;
+  }
+}
+
+@media screen and (max-width: 1746px) {
+  .nameModal {
+    left: 390px;
+  }
+  .ccModal {
+    left: 615px;
+  }
+  .transportModal {
+    left: 845px;
+  }
+  .date {
+    right: 385px;
+  }
+}
+
+@media screen and (max-width: 1536px) {
+  .nameModal {
+    left: 285px;
+  }
+  .ccModal {
+    left: 515px;
+  }
+  .transportModal {
+    left: 740px;
+  }
+  .date {
+    right: 285px;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .nameModal {
+    left: 160px;
+  }
+  .ccModal {
+    left: 390px;
+  }
+  .transportModal {
+    left: 610px;
+  }
+}
+
+@media screen and (min-width: 2133px) {
+  .nameModal {
+    left: 585px;
+  }
+  .ccModal {
+    left: 810px;
+  }
+  .transportModal {
+    left: 1030px;
+  }
+  .date {
+    right: 580px;
+  }
+}
+
+@media screen and (min-width: 2400px) {
+  .nameModal {
+    left: 710px;
+  }
+  .ccModal {
+    left: 940px;
+  }
+  .transportModal {
+    left: 1170px;
+  }
+  .date {
+    right: 710px;
+  }
+}
+
+@media screen and (min-width: 2560px) {
+  .nameModal {
+    left: 800px;
+  }
+  .ccModal {
+    left: 1020px;
+  }
+  .transportModal {
+    left: 1240px;
+  }
+  .date {
+    right: 795px;
+  }
+}
+
+@media screen and (min-width: 2880px) {
+  .nameModal {
+    left: 950px;
+  }
+  .ccModal {
+    left: 1180px;
+  }
+  .transportModal {
+    left: 1410px;
+  }
+  .date {
+    right: 945px;
+  }
+}
+
 .singleItem {
   border-bottom: 1px solid gray;
   font-size: 17px;
