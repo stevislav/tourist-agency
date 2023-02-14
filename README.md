@@ -83,3 +83,12 @@ U aplikaciji postoje tri načina prijavljivanja i to kao:
 
 
 ![image](https://user-images.githubusercontent.com/85966007/218791859-87373829-aaf7-456f-8a25-ec9b61fba11c.png)
+
+
+**Detaljan prikaz primera aranžmana je na slici ispod prikazan. Uključuje osnovne podatke aranžmana, neke pogodnosti, slike lokacija koje obuhvata kroz isti broj dana koji je ostavljen u detaljnom opisu ponude.**
+
+![image](https://user-images.githubusercontent.com/85966007/218792327-889ff1c1-4143-48d3-9339-205069c70784.png)
+
+**Korisnik , ukoliko je prijavljen, imaće mogućnost rezervacije aranžmana, ukoliko je uneo odgovarajuće podatke.  Za rezervisanje je potrebno uneti pored punog imena i mobilni telefon, e-mail, način plaćanja, broj odraslih  koji će biti kao i broj dece . Korisnik može ostaviti komentar ukoliko ima želju ili određeni zahtev.**
+
+![image](https://user-images.githubusercontent.com/85966007/218792397-99039e6b-59f9-43b6-8415-3d071cd4414a.png)
