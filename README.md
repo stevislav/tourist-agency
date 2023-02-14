@@ -10,6 +10,11 @@ MERN stek je JavaScript stek koji je dizajniran da učini proces razvoja lakšim
 MongoDB je NoSQL (non-relational) dokumentalno-orijentisana baza podataka. Podaci se čuvaju u fleksibilnim dokumentima sa jezikom upita zasnovanim na JSON (JavaScript Object Notation). MongoDB je poznat po tome što je fleksibilan i lak za skaliranje.
 #### Express: Okvir za pozadinske web aplikacije
 Express je okvir veb aplikacije za Node.js, drugu MERN komponentu. Umesto da ručno pišu kompletan kod web servera na Node.js direktno, programeri koriste Express da pojednostave zadatak pisanja serverskog koda.
+#### React: JavaScript biblioteka za izgradnju korisničkih interfejsa
+React je prvobitno kreirao softverski inženjer na Facebook-u, a kasnije je postao open-sourced. React biblioteka se može koristiti za kreiranje prikaza renderovanih u HTML-u.
+#### Node.js: Višeplatformsko JavaScript okruženje za izvršavanje
+Node.js je napravljen na Chrome-ovoj V8 JavaScript mašini. Dizajniran je za pravljenje skalabilnih mrežnih aplikacija i može da izvršava JavaScript kod van pretraživača. Za više informacija, možete pogledati članak u nastavku:Getting Started with Node JS✌ *Are you a newbie to Web Development? Want to get started with Node.js? This article is for you. Here, you get to know…*medium.com https://medium.com/dsckiit/getting-started-with-node-js-89663e4e0e9e
+
 
 ## Inicijalizacija projekta
    Inicijalizacija aplikacije obavlja se u koracima koji slede: klonirajte sa GitHub linka https://github.com/stevislav/tourist-agency vezu u lokalnu fasciklu na računaru. Otvorite fasciklu koristeći VSCode ili bilo koji uređivač teksta po vašem izboru.
