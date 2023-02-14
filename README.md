@@ -32,10 +32,19 @@ Da bismo napravili build za celu aplikaciju, potrebno je da pokrenemo sledeću 
 
       docker-compose build
 
-Sistem sa više kontejnera možemo pokrenuti pomoću sledeće komande: docker-compose up
+Sistem sa više kontejnera možemo pokrenuti pomoću sledeće komande: 
+
+      docker-compose up
 
 Konačno, možemo da otvorimo http://localhost:3000 da vidimo naš React Frontend.
 
 Pozadinski server je aktivan na http://localhost:8800
 
 A MongoDB radi na http://localhost:27017
+
+Možete pokrenuti kontejnere svaki pojedinačno radi sigurnosti redosleda pokretanja, i to na sledeći način:
+
+      docker-compose up -d mongodb
+      docker-compose up -d mongo_seed
+      docker-compose up -d api
+      docker-compose up -d client
