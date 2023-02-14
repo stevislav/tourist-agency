@@ -1,4 +1,4 @@
-# *INSTABOOK* [MongoDB](https://github.com/stevislav/tourist-agency/blob/main/mongo_seed/INSTABOOK.docx)
+# *INSTABOOK* [dokumentacija](https://github.com/stevislav/tourist-agency/blob/main/mongo_seed/INSTABOOK.docx)
 ### Travel Agency 
       Cilj ovog projekta jeste da objasni modelovanje baze podataka koja zadovoljava zahteve realnog sistema kakav je Agencija za putovanja kao i samu implementaciju baze podataka na MongoDB Atlas serveru i aplikativnog softvera u Node.js okruženju.
 ## **MERN / Docker**
