@@ -25,7 +25,7 @@ Da bismo pokrenuli celu našu aplikaciju zajedno, tj. paralelno pokrenuli sve ko
 
 
 ## Kreiranje i pokretanje aplikacije
-**This is bold text**
+
 Da bismo napravili build za celu aplikaciju, potrebno je da pokrenemo sledeću komandu: docker-compose build
 
 Sistem sa više kontejnera možemo pokrenuti pomoću sledeće komande: docker-compose up
