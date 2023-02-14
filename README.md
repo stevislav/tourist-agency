@@ -1,6 +1,7 @@
-# *INSTABOOK* [dokumentacija](https://github.com/stevislav/tourist-agency/blob/main/mongo_seed/INSTABOOK.docx)
+# *INSTABOOK* 
 ### Travel Agency 
       Cilj ovog projekta jeste da objasni modelovanje baze podataka koja zadovoljava zahteve realnog sistema kakav je Agencija za putovanja kao i samu implementaciju baze podataka na MongoDB Atlas serveru i aplikativnog softvera u Node.js okruženju.
+[dokumentacija](https://github.com/stevislav/tourist-agency/blob/main/mongo_seed/INSTABOOK.docx)
 ## **MERN / Docker**
 #### Šta je MERN stek?
 MERN stek je JavaScript stek koji je dizajniran da učini proces razvoja lakšim. MERN uključuje četiri komponente otvorenog koda: MongoDB, Express, React i Node.js. Ove komponente nude pridruženi ****end-to-end okvir u kojem programeri mogu da rade.
