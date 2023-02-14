@@ -104,10 +104,11 @@ const Reserve = ({ setOpen, offerId }) => {
             />
             <label>Comment</label>
             <textarea
+              id="comment"
               placeholder="Leave a comment.."
               onChange={(e) => setComment(e.target.value)}
             />
-            <button onClick={handleClick} className="rButton">
+            <button id="btnReservation" onClick={handleClick} className="rButton">
               Reserve Now
             </button>
           </div>

@@ -50,6 +50,9 @@ services:
       - api    
     ports:
       - "3000:3000"
+    volumes:
+      - ./client:/app
+      - /app/node_modules
     environment:
       - CHOKIDAR_USERPOLLING=true
     stdin_open: true

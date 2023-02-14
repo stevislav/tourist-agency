@@ -277,7 +277,7 @@ const Offer = () => {
             <div className="hotelWrapper">
               <h1 className="hotelTitle">{data.name}</h1>
               <div className="ratingStars">{rating}</div>
-              <div className="continents">
+              <div id="country" className="continents">
                 <span>{data.continent}</span>, {data.country}
               </div>
               <div className="hotelAddress">
@@ -402,6 +402,7 @@ const Offer = () => {
                     <b style={{ color: "green" }}>€{data.price}</b>
                   </h2>
                   <button
+                    id="btnReserve"
                     disabled={new Date().getTime() > data.startDate}
                     onClick={handleClick}
                   >

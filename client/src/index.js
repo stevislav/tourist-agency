@@ -4,6 +4,7 @@ import App from "./App";
 import { AuthContextProvider } from "./profile/context/AuthContext.js";
 import { SearchContextProvider } from "./main/context/SearchContext.js";
 
+ // hello
 ReactDOM.render(
   <React.StrictMode>
     <AuthContextProvider>

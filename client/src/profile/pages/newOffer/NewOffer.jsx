@@ -213,11 +213,48 @@ const NewOffer = ({}) => {
               multiple
               onChange={(e) => {
                 if (e.target.files.length < 7) {
+                  console.log(e.target.files);
+                  for(let i = 0;i<e.target.files.length;i++){
+                    //console.log(e.target.files[i].name.split(".")[e.target.files[i].name.split(".").length-1])
+                    let trigger = 0;
+                    if(e.target.files[i].name.split(".")[e.target.files[i].name.split(".").length-1]==="jpg"){
+                     
+                      trigger = 1;
+                    }
+
+                    if(e.target.files[i].name.split(".")[e.target.files[i].name.split(".").length-1]==="png"){
+                  
+                    trigger = 1;
+                    }
+                    
+                    if(e.target.files[i].name.split(".")[e.target.files[i].name.split(".").length-1]==="jpeg"){
+
+                    trigger = 1;
+                    }
+
+                    if(trigger===0){
+                      setErrorMessage("Uploaded file must be a picture!")
+                      setTimeout(() => setErrorMessage(""), 3000);
+
+                      return
+                    }
+
+                    if(e.target.files[i].size>4000000){
+                      setErrorMessage("Uploaded file size must be 4 MB or lower!")
+                      setTimeout(() => setErrorMessage(""), 3000);
+
+                      return
+                    }
+                    //console.log(e.target.files[i].size)
+                  }
                   setFiles(e.target.files);
                 } else {
                   setErrorMessage(
+                    
                     "Number of locations/files must be 6 or lower!"
                   );
+                  setTimeout(() => setErrorMessage(""), 3000);
+
                 }
               }}
               style={{ display: "none" }}

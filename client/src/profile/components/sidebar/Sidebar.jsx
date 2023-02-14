@@ -32,7 +32,7 @@ const Sidebar = () => {
             <Link to="/profile/users" style={{ textDecoration: "none" }}>
               <li>
                 <PersonIcon className="icon" />
-                <span>Users</span>
+                <span id="users">Users</span>
               </li>
             </Link>
           )}
@@ -40,14 +40,14 @@ const Sidebar = () => {
             <Link to="/profile/offers" style={{ textDecoration: "none" }}>
               <li>
                 <StoreIcon className="icon" />
-                <span>Offers</span>
+                <span id="offers">Offers</span>
               </li>
             </Link>
           )}
           <Link to="/profile/pendingoffers" style={{ textDecoration: "none" }}>
             <li>
               <CreditCardIcon className="icon" />
-              <span>Reservations</span>
+              <span id="reservations">Reservations</span>
             </li>
           </Link>
         </ul>
