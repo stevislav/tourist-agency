@@ -13,7 +13,7 @@ MERN stek je JavaScript stek koji je dizajniran da učini proces razvoja lakšim
 #### React: JavaScript biblioteka za izgradnju korisničkih interfejsa
 [React](https://reactjs.org/) je prvobitno kreirao softverski inženjer na Facebook-u, a kasnije je postao open-sourced. React biblioteka se može koristiti za kreiranje prikaza renderovanih u HTML-u.
 #### Node.js: Višeplatformsko JavaScript okruženje za izvršavanje
-[Node.js] (https://nodejs.org/en/) je napravljen na Chrome-ovoj V8 JavaScript mašini. Dizajniran je za pravljenje skalabilnih mrežnih aplikacija i može da izvršava JavaScript kod van pretraživača. Za više informacija, možete pogledati članak u nastavku: https://medium.com/dsckiit/getting-started-with-node-js-89663e4e0e9e
+[Node.js](https://nodejs.org/en/) je napravljen na Chrome-ovoj V8 JavaScript mašini. Dizajniran je za pravljenje skalabilnih mrežnih aplikacija i može da izvršava JavaScript kod van pretraživača. Za više informacija, možete pogledati članak u nastavku: https://medium.com/dsckiit/getting-started-with-node-js-89663e4e0e9e
 
 
 ## Inicijalizacija projekta
