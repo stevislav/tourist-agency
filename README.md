@@ -17,7 +17,9 @@ MERN stek je JavaScript stek koji je dizajniran da učini proces razvoja lakšim
 
 
 ## Inicijalizacija projekta
-   Inicijalizacija aplikacije obavlja se u koracima koji slede: klonirajte sa GitHub linka https://github.com/stevislav/tourist-agency vezu u lokalnu fasciklu na računaru. Otvorite fasciklu koristeći VSCode ili bilo koji uređivač teksta po vašem izboru.
+   Inicijalizacija aplikacije obavlja se u koracima koji slede: klonirajte sa GitHub linka https://github.com/stevislav/tourist-agency vezu u lokalnu fasciklu na računaru. Otvorite fasciklu koristeći VSCode ili bilo koji uređivač teksta po vašem izboru i ukucajte sledeću liniju koda u terminalu.
+   
+      git clone --single-branch -b "main" https://github.com/stevislav/tourist-agency.git .
 
 ## Docker Compose 
   Compose je alatka za definisanje i pokretanje Docker aplikacija sa više kontejnera. Sa Compose, koristite YAML datoteku da biste konfigurisali usluge vaše aplikacije. Zatim, sa jednom komandom, kreirate i pokrećete sve usluge iz vaše konfiguracije.
@@ -26,7 +28,9 @@ Da bismo pokrenuli celu našu aplikaciju zajedno, tj. paralelno pokrenuli sve ko
 
 ## Kreiranje i pokretanje aplikacije
 
-Da bismo napravili build za celu aplikaciju, potrebno je da pokrenemo sledeću komandu: docker-compose build
+Da bismo napravili build za celu aplikaciju, potrebno je da pokrenemo sledeću komandu: 
+
+      docker-compose build
 
 Sistem sa više kontejnera možemo pokrenuti pomoću sledeće komande: docker-compose up
 
