@@ -24,6 +24,7 @@ import WifiIcon from "@mui/icons-material/Wifi";
 import AcUnitIcon from "@mui/icons-material/AcUnit";
 import TvIcon from "@mui/icons-material/Tv";
 import KitchenIcon from "@mui/icons-material/Kitchen";
+import HomeIcon from "@mui/icons-material/Home";
 import {
   faCalendarDays,
   faCalendarXmark,
@@ -256,10 +257,12 @@ const Offer = () => {
             {open && (
               <div className="slider">
                 <CloseIcon className="close" onClick={() => setOpen(false)} />
-                <NavigateBeforeIcon
-                  className="arrow"
-                  onClick={() => handleMove("l")}
-                />
+                {data.imgPerLocation.length !== 1 && (
+                  <NavigateBeforeIcon
+                    className="arrow"
+                    onClick={() => handleMove("l")}
+                  />
+                )}
 
                 <div className="sliderWrapper">
                   <img
@@ -268,10 +271,12 @@ const Offer = () => {
                     className="sliderImg"
                   />
                 </div>
-                <NavigateNextIcon
-                  className="arrow"
-                  onClick={() => handleMove("r")}
-                />
+                {data.imgPerLocation.length !== 1 && (
+                  <NavigateNextIcon
+                    className="arrow"
+                    onClick={() => handleMove("r")}
+                  />
+                )}
               </div>
             )}
             <div className="hotelWrapper">
@@ -303,6 +308,10 @@ const Offer = () => {
                   <span className="offerTT">{data.transportType}</span>
                 </span>
               </div>
+              <div className="accommodationTpe">
+                <HomeIcon className="homeIcon" />
+                <span>{data.accommodation}</span>
+              </div>
               <span className="hotelDistance">
                 <FontAwesomeIcon icon={faScroll} className="reserveDesc" />
                 <span>Description: </span>
@@ -313,7 +322,7 @@ const Offer = () => {
                   <WifiIcon
                     className={data.internet ? "addon yes" : "addon no"}
                   />
-                  <span class="tooltiptext">
+                  <span className="tooltiptext">
                     Wi-fi {data.internet ? "available" : "unavailable"}
                   </span>
                 </div>
@@ -321,13 +330,13 @@ const Offer = () => {
                   <AcUnitIcon
                     className={data.airConditioning ? "addon yes" : "addon no"}
                   />
-                  <span class="tooltiptext">
+                  <span className="tooltiptext">
                     AC {data.airConditioning ? "available" : "unavailable"}
                   </span>
                 </div>
                 <div className="tooltip">
                   <TvIcon className={data.tv ? "addon yes" : "addon no"} />
-                  <span class="tooltiptext">
+                  <span className="tooltiptext">
                     TV {data.tv ? "available" : "unavailable"}
                   </span>
                 </div>
@@ -335,7 +344,7 @@ const Offer = () => {
                   <KitchenIcon
                     className={data.roomFridge ? "addon yes" : "addon no"}
                   />
-                  <span class="tooltiptext">
+                  <span className="tooltiptext">
                     Fridge {data.roomFridge ? "available" : "unavailable"}
                   </span>
                 </div>
@@ -402,6 +411,7 @@ const Offer = () => {
                     <b style={{ color: "green" }}>€{data.price}</b>
                   </h2>
                   <button
+                    id="btnReserve"
                     disabled={new Date().getTime() > data.startDate}
                     onClick={handleClick}
                   >
