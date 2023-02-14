@@ -1,3 +1,5 @@
+## Travel Agency 
+## INSTABOOK 
 ## Inicijalizacija projekta
 	Inicijalizacija aplikacije obavlja se u koracima koji slede: klonirajte sa GitHub linka https://github.com/stevislav/tourist-agency vezu u lokalnu fasciklu na računaru. Otvorite fasciklu koristeći VSCode ili bilo koji uređivač teksta po vašem izboru.
 
