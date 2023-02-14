@@ -67,3 +67,6 @@ U aplikaciji postoje tri načina prijavljivanja i to kao:
 
       
 ![image](https://user-images.githubusercontent.com/85966007/218750174-e07feab5-2418-4f30-ba4a-b2a19dacfe96.png)
+
+
+![image](https://user-images.githubusercontent.com/85966007/218790489-cbbd152c-b905-4110-988f-29face9cbb8a.png)
