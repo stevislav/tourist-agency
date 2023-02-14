@@ -68,6 +68,12 @@ U aplikaciji postoje tri načina prijavljivanja i to kao:
       
 ![image](https://user-images.githubusercontent.com/85966007/218750174-e07feab5-2418-4f30-ba4a-b2a19dacfe96.png)
 
-Na profilu Admina, on može da izmeni svoje lične podatke. Takođe, ima mogućnost uvida u tabelu aranžmana, kao i dozvolu da izmeni, obriše ili doda novu ponudu (slika ispod).
+**Na profilu Admina, on može da izmeni svoje lične podatke. Takođe, ima mogućnost uvida u tabelu aranžmana, kao i dozvolu da izmeni, obriše ili doda novu ponudu (slika ispod).**
 
 ![image](https://user-images.githubusercontent.com/85966007/218790489-cbbd152c-b905-4110-988f-29face9cbb8a.png)
+
+
+**Adminu je omogućen uvid u podatke o svim korisnicima, a ima i dozvolu da doda, obriše, postavi korisnika za aktivnog I za člana staff-a.**
+
+
+![image](https://user-images.githubusercontent.com/85966007/218791487-01d74381-31e7-4d08-8363-f1df3e7f4696.png)
