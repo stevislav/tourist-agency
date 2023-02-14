@@ -7,13 +7,13 @@ MERN stek je JavaScript stek koji je dizajniran da učini proces razvoja lakšim
 
 ### Bliži pogled na komponente MERN steka
 #### MongoDB: baza podataka dokumenata na više platformi
-[MongoDB]([url](https://www.mongodb.com/)) je NoSQL (non-relational) dokumentalno-orijentisana baza podataka. Podaci se čuvaju u fleksibilnim dokumentima sa jezikom upita zasnovanim na JSON (JavaScript Object Notation). MongoDB je poznat po tome što je fleksibilan i lak za skaliranje.
+[MongoDB](https://www.mongodb.com/) je NoSQL (non-relational) dokumentalno-orijentisana baza podataka. Podaci se čuvaju u fleksibilnim dokumentima sa jezikom upita zasnovanim na JSON (JavaScript Object Notation). MongoDB je poznat po tome što je fleksibilan i lak za skaliranje.
 #### Express: Okvir za pozadinske web aplikacije
-Express je okvir veb aplikacije za Node.js, drugu MERN komponentu. Umesto da ručno pišu kompletan kod web servera na Node.js direktno, programeri koriste Express da pojednostave zadatak pisanja serverskog koda.
+[Express](https://expressjs.com/) je okvir veb aplikacije za Node.js, drugu MERN komponentu. Umesto da ručno pišu kompletan kod web servera na Node.js direktno, programeri koriste Express da pojednostave zadatak pisanja serverskog koda.
 #### React: JavaScript biblioteka za izgradnju korisničkih interfejsa
-React je prvobitno kreirao softverski inženjer na Facebook-u, a kasnije je postao open-sourced. React biblioteka se može koristiti za kreiranje prikaza renderovanih u HTML-u.
+[React](https://reactjs.org/) je prvobitno kreirao softverski inženjer na Facebook-u, a kasnije je postao open-sourced. React biblioteka se može koristiti za kreiranje prikaza renderovanih u HTML-u.
 #### Node.js: Višeplatformsko JavaScript okruženje za izvršavanje
-Node.js je napravljen na Chrome-ovoj V8 JavaScript mašini. Dizajniran je za pravljenje skalabilnih mrežnih aplikacija i može da izvršava JavaScript kod van pretraživača. Za više informacija, možete pogledati članak u nastavku: https://medium.com/dsckiit/getting-started-with-node-js-89663e4e0e9e
+[Node.js] (https://nodejs.org/en/) je napravljen na Chrome-ovoj V8 JavaScript mašini. Dizajniran je za pravljenje skalabilnih mrežnih aplikacija i može da izvršava JavaScript kod van pretraživača. Za više informacija, možete pogledati članak u nastavku: https://medium.com/dsckiit/getting-started-with-node-js-89663e4e0e9e
 
 
 ## Inicijalizacija projekta
