@@ -77,3 +77,9 @@ U aplikaciji postoje tri načina prijavljivanja i to kao:
 
 
 ![image](https://user-images.githubusercontent.com/85966007/218791487-01d74381-31e7-4d08-8363-f1df3e7f4696.png)
+
+
+**Sledeća slika kontrolna kartica je kartica “Rezervations” (slika 15.). Adminu je omogućen uvid u listu rezervacija ponuda svih korisnicima, a ima i dozvolu da prihvati rezervaciju, obriše ili pogleda ponudu.**
+
+
+![image](https://user-images.githubusercontent.com/85966007/218791859-87373829-aaf7-456f-8a25-ec9b61fba11c.png)
