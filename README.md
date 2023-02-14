@@ -42,7 +42,7 @@ Pozadinski server je aktivan na http://localhost:8800
 
 A MongoDB radi na http://localhost:27017
 
-Možete pokrenuti kontejnere svaki pojedinačno radi sigurnosti redosleda pokretanja, i to na sledeći način:
+**Možete pokrenuti kontejnere svaki pojedinačno radi sigurnosti redosleda pokretanja, i to na sledeći način:**
 
       docker-compose up -d mongodb
       
