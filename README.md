@@ -92,3 +92,8 @@ U aplikaciji postoje tri načina prijavljivanja i to kao:
 **Korisnik , ukoliko je prijavljen, imaće mogućnost rezervacije aranžmana, ukoliko je uneo odgovarajuće podatke.  Za rezervisanje je potrebno uneti pored punog imena i mobilni telefon, e-mail, način plaćanja, broj odraslih  koji će biti kao i broj dece . Korisnik može ostaviti komentar ukoliko ima želju ili određeni zahtev.**
 
 ![image](https://user-images.githubusercontent.com/85966007/218792397-99039e6b-59f9-43b6-8415-3d071cd4414a.png)
+
+**Korisnik klikom na ALL OFFERS može videte celokupnu ponudu aranžmana dostupnih na sajtu(slika ispod).**
+
+![image](https://user-images.githubusercontent.com/85966007/218792920-1ccc63ee-4e79-4831-a3eb-6f9dfa72e805.png)
+
